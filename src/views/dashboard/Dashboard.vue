@@ -26,10 +26,18 @@
     </p>
     <v-row>
       <v-col
+        v-for="data in recommandPoem"
+        :key="data.id"
         cols="12"
         md="4"
       >
-        <dashboard-recommand-poem-card></dashboard-recommand-poem-card>
+        <dashboard-recommand-poem-card
+          :title="data.title"
+          :content="data.content"
+          :author="data.author"
+          img-src="https://api.ixiaowai.cn/gqapi/gqapi.php"
+        >
+        </dashboard-recommand-poem-card>
       </v-col>
     </v-row>
   </div>
@@ -37,7 +45,6 @@
 
 <script>
 // eslint-disable-next-line object-curly-newline
-import { mdiPoll, mdiLabelVariantOutline, mdiCurrencyUsd, mdiHelpCircleOutline } from '@mdi/js'
 
 // demos
 import DashboardEveryDayPoem from './DashboardEveryDayPoem.vue'
@@ -51,48 +58,30 @@ export default {
     DashboardRecommandPoemCard,
   },
   setup() {
-    const totalProfit = {
-      statTitle: 'Total Profit',
-      icon: mdiPoll,
-      color: 'success',
-      subtitle: 'Weekly Project',
-      statistics: '$25.6k',
-      change: '+42%',
-    }
+    const recommandPoem = [
+      {
+        id: 1,
+        title: '不知道',
+        author: '李白',
+        content: 'asfasdfsad',
+      },
+      {
+        id: 2,
+        title: '不知道',
+        author: '李白',
+        content: 'asfasdfsad',
+      },
+      {
+        id: 3,
+        title: '不知道',
+        author: '李白',
+        content: 'asfasdfsad',
+      },
 
-    const totalSales = {
-      statTitle: 'Refunds',
-      icon: mdiCurrencyUsd,
-      color: 'secondary',
-      subtitle: 'Past Month',
-      statistics: '$78',
-      change: '-15%',
-    }
-
-    // vertical card options
-    const newProject = {
-      statTitle: 'New Project',
-      icon: mdiLabelVariantOutline,
-      color: 'primary',
-      subtitle: 'Yearly Project',
-      statistics: '862',
-      change: '-18%',
-    }
-
-    const salesQueries = {
-      statTitle: 'Sales Quries',
-      icon: mdiHelpCircleOutline,
-      color: 'warning',
-      subtitle: 'Last week',
-      statistics: '15',
-      change: '-18%',
-    }
+    ]
 
     return {
-      totalProfit,
-      totalSales,
-      newProject,
-      salesQueries,
+      recommandPoem,
     }
   },
 }

@@ -18,7 +18,7 @@
             ></v-img>
 
             <h2 class="text-2xl font-weight-semibold">
-              Materio
+              千千诗阙
             </h2>
           </router-link>
         </v-card-title>
@@ -26,10 +26,10 @@
         <!-- title -->
         <v-card-text>
           <p class="text-2xl font-weight-semibold text--primary mb-2">
-            Adventure starts here 🚀
+            快速注册一个新账号 🚀
           </p>
           <p class="mb-2">
-            Make your app management easy and fun!
+            恭喜你即将成为本站的第 {{ 1 }} 个用户
           </p>
         </v-card-text>
 
@@ -39,7 +39,7 @@
             <v-text-field
               v-model="username"
               outlined
-              label="Username"
+              label="用户名"
               placeholder="JohnDoe"
               hide-details
               class="mb-3"
@@ -48,7 +48,7 @@
             <v-text-field
               v-model="email"
               outlined
-              label="Email"
+              label="邮箱"
               placeholder="john@example.com"
               hide-details
               class="mb-3"
@@ -58,7 +58,7 @@
               v-model="password"
               outlined
               :type="isPasswordVisible ? 'text' : 'password'"
-              label="Password"
+              label="密码"
               placeholder="············"
               :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
               hide-details
@@ -71,7 +71,7 @@
             >
               <template #label>
                 <div class="d-flex align-center flex-wrap">
-                  <span class="me-2">I agree to</span><a href="javascript:void(0)">privacy policy &amp; terms</a>
+                  <span class="me-2">我同意</span><a href="javascript:void(0)">用户协议</a>
                 </div>
               </template>
             </v-checkbox>
@@ -89,33 +89,17 @@
         <!-- create new account  -->
         <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
           <span class="me-2">
-            Already have an account?
+            已经有一个账号？
           </span>
           <router-link :to="{ name:'pages-login' }">
-            Sign in instead
+            登录
           </router-link>
         </v-card-text>
 
         <!-- divider -->
         <v-card-text class="d-flex align-center mt-2">
           <v-divider></v-divider>
-          <span class="mx-5">or</span>
-          <v-divider></v-divider>
         </v-card-text>
-
-        <!-- social link -->
-        <v-card-actions class="d-flex justify-center">
-          <v-btn
-            v-for="link in socialLink"
-            :key="link.icon"
-            icon
-            class="ms-1"
-          >
-            <v-icon :color="$vuetify.theme.dark ? link.colorInDark:link.color">
-              {{ link.icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-actions>
       </v-card>
     </div>
 

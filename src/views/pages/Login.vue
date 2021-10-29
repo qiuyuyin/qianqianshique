@@ -14,11 +14,11 @@
               max-width="30px"
               alt="logo"
               contain
-              class="me-3 "
+              class="me-3"
             ></v-img>
 
             <h2 class="text-2xl font-weight-semibold">
-              Materio
+              千千诗阙
             </h2>
           </router-link>
         </v-card-title>
@@ -26,10 +26,10 @@
         <!-- title -->
         <v-card-text>
           <p class="text-2xl font-weight-semibold text--primary mb-2">
-            Welcome to Materio! 👋🏻
+            欢迎来到千千诗阙👋🏻
           </p>
           <p class="mb-2">
-            Please sign-in to your account and start the adventure
+            请输入您的账号和密码
           </p>
         </v-card-text>
 
@@ -58,7 +58,7 @@
 
             <div class="d-flex align-center justify-space-between flex-wrap">
               <v-checkbox
-                label="Remember Me"
+                label="记住我"
                 hide-details
                 class="me-3 mt-1"
               >
@@ -68,9 +68,7 @@
               <a
                 href="javascript:void(0)"
                 class="mt-1"
-              >
-                Forgot Password?
-              </a>
+              > 忘记密码 </a>
             </div>
 
             <v-btn
@@ -78,41 +76,23 @@
               color="primary"
               class="mt-6"
             >
-              Login
+              登录
             </v-btn>
           </v-form>
         </v-card-text>
 
         <!-- create new account  -->
         <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
-          <span class="me-2">
-            New on our platform?
-          </span>
-          <router-link :to="{name:'pages-register'}">
-            Create an account
+          <span class="me-2"> 第一次登录？ </span>
+          <router-link :to="{ name: 'pages-register' }">
+            注册一个新账号。
           </router-link>
         </v-card-text>
 
         <!-- divider -->
         <v-card-text class="d-flex align-center mt-2">
           <v-divider></v-divider>
-          <span class="mx-5">or</span>
-          <v-divider></v-divider>
         </v-card-text>
-
-        <!-- social links -->
-        <v-card-actions class="d-flex justify-center">
-          <v-btn
-            v-for="link in socialLink"
-            :key="link.icon"
-            icon
-            class="ms-1"
-          >
-            <v-icon :color="$vuetify.theme.dark ? link.colorInDark : link.color">
-              {{ link.icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-actions>
       </v-card>
     </div>
 
@@ -120,8 +100,8 @@
     <img
       class="auth-mask-bg"
       height="173"
-      :src="require(`@/assets/images/misc/mask-${$vuetify.theme.dark ? 'dark':'light'}.png`)"
-    >
+      :src="require(`@/assets/images/misc/mask-${$vuetify.theme.dark ? 'dark' : 'light'}.png`)"
+    />
 
     <!-- tree -->
     <v-img
