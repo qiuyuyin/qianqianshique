@@ -1,0 +1,62 @@
+{
+  "name": "qianqianshique",
+  "description": "Production ready carefully crafted most comprehensive admin template",
+  "license": "MIT",
+  "version": "1.0.1",
+  "author": {
+    "name": "ThemeSelection",
+    "url": "https://themeselection.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free/issues"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
+  },
+  "homepage": "https://themeselection.com/demo/materio-vuetify-vuejs-admin-template-free/demo/",
+  "keywords": [
+    "free template",
+    "vuejs admin",
+    "free admin template",
+    "free vuejs theme",
+    "free vuejs admin",
+    "free vuejs template"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@mdi/js": "^5.9.55",
+    "@vue/composition-api": "1.0.4",
+    "@vuetify/cli-plugin-utils": "^0.0.9",
+    "apexcharts": "^3.27.3",
+    "core-js": "^3.6.5",
+    "jinrishici": "^1.0.6",
+    "vue": "^2.6.11",
+    "vue-apexcharts": "^1.6.2",
+    "vue-router": "^3.2.0",
+    "vuetify": "^2.4.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "~1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.4.2",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0"
+  }
+}
