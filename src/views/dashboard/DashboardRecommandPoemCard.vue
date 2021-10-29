@@ -1,39 +1,55 @@
 <template>
   <v-card
     v-bind="$attrs"
+    class="align-self-start"
   >
-    <v-img
-      height="140px"
-      :src="imgSrc"
-    ></v-img>
-    <v-card-title>
-      {{ title }}
-    </v-card-title>
+    <v-card-text class="d-flex flex-column justify-center align-center">
+      <v-avatar
+        color="primary"
+        class="mt-5 mx-auto"
+        icon
+        size="50"
+      >
+        <v-icon
+          size="2rem"
+          color="white"
+        >
+          {{ mdiFuriganaVertical }}
+        </v-icon>
+      </v-avatar>
+    </v-card-text>
+    <v-card-text class="text-center mb-n6 text--primary">
+      <p class="font-weight-bold text-xl">
+        {{ title }}
+      </p>
+    </v-card-text>
     <v-card-text>
       <div
         class="recommand-text-div text--primary"
       >
-        <p class="text-end primary--text">
+        <p class="secondary--text text-end ">
           {{ author }}
         </p>
-        <span>
+        <span class="font-weight-bold">
           {{ content }}
         </span>
       </div>
     </v-card-text>
-    <v-card-actions class="primary pa-0">
+    <v-card-text class="text-center">
       <v-btn
+        text
         color="primary"
-        block
-        dark
+        class="text-center font-weight-black"
         large
       >
-        查看详情
+        详情
       </v-btn>
-    </v-card-actions>
+    </v-card-text>
   </v-card>
 </template>
 <script>
+import { mdiFuriganaVertical } from '@mdi/js'
+
 export default {
   props: {
     content: {
@@ -52,6 +68,11 @@ export default {
       type: String,
       required: true,
     },
+  },
+  setup() {
+    return {
+      mdiFuriganaVertical,
+    }
   },
 }
 </script>
