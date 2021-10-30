@@ -13,8 +13,9 @@
         <v-icon
           size="2rem"
           color="white"
+          class="mdi-spin spin-icon"
         >
-          {{ mdiFuriganaVertical }}
+          {{ mdiBrightness5 }}
         </v-icon>
       </v-avatar>
     </v-card-text>
@@ -48,7 +49,7 @@
   </v-card>
 </template>
 <script>
-import { mdiFuriganaVertical } from '@mdi/js'
+import { mdiBrightness5 } from '@mdi/js'
 
 export default {
   props: {
@@ -71,12 +72,12 @@ export default {
   },
   setup() {
     return {
-      mdiFuriganaVertical,
+      mdiBrightness5,
     }
   },
 }
 </script>
-<style>
+<style type="text/css">
 .recommand-text-div {
   height: 100px;
   display: -webkit-box;
@@ -84,5 +85,15 @@ export default {
   -webkit-line-clamp: 4;
   overflow: hidden;
 }
-
+@keyframes changDeg{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.spin-icon {
+  animation:changDeg 8s linear 1.5s infinite;
+}
 </style>
