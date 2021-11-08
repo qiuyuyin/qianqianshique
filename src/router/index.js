@@ -14,9 +14,19 @@ const routes = [
     component: () => import('@/views/dashboard/Dashboard.vue'),
   },
   {
+    path: '/poem/:dynasty/:id',
+    name: 'poem',
+    component: () => import('@/views/poem/Poem.vue'),
+  },
+  {
     path: '/typography',
     name: 'typography',
     component: () => import('@/views/typography/Typography.vue'),
+  },
+  {
+    path: '/ai-poem/shi',
+    name: 'ai-poem-shi',
+    component: () => import('@/views/ai-poem/Shi.vue'),
   },
   {
     path: '/icons',

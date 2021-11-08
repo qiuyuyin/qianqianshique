@@ -47,6 +47,11 @@
         :to="{ name: 'pages-account-settings'}"
         :icon="icons.mdiAccountCogOutline"
       ></nav-menu-link>
+      <nav-menu-link
+        title="ai写诗"
+        :to="{ name: 'ai-poem-shi'}"
+        :icon="icons.mdiAccountCogOutline"
+      ></nav-menu-link>
       <nav-menu-group
         title="Pages"
         :icon="icons.mdiFileOutline"

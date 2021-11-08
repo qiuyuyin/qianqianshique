@@ -13,7 +13,7 @@
         <v-icon
           size="2rem"
           color="white"
-          class="mdi-spin spin-icon"
+          class="spin-icon"
         >
           {{ mdiBrightness5 }}
         </v-icon>
@@ -38,6 +38,7 @@
     </v-card-text>
     <v-card-text class="text-center">
       <v-btn
+        :to="returnRouter"
         text
         color="primary"
         class="text-center font-weight-black"
@@ -68,6 +69,25 @@ export default {
     imgSrc: {
       type: String,
       required: true,
+    },
+    id: {
+      type: Number,
+      required: true,
+    },
+    dynasty: {
+      type: String,
+      required: true,
+    },
+  },
+  computed: {
+    returnRouter() {
+      return {
+        name: 'poem',
+        params: {
+          dynasty: this.dynasty,
+          id: this.id,
+        },
+      }
     },
   },
   setup() {
