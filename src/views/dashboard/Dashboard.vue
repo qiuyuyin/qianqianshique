@@ -29,7 +29,7 @@
         v-for="data in recommandPoem"
         :key="data.id"
         cols="12"
-        md="4"
+        md="6"
       >
         <dashboard-recommand-poem-card
           :id="data.id"

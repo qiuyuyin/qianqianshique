@@ -43,6 +43,11 @@
         :icon="icons.mdiHomeOutline"
       ></nav-menu-link>
       <nav-menu-link
+        title="作者"
+        :to="{ name: 'author'}"
+        :icon="icons.mdiAccountHardHat"
+      ></nav-menu-link>
+      <nav-menu-link
         title="设置"
         :to="{ name: 'pages-account-settings'}"
         :icon="icons.mdiAccountCogOutline"
@@ -87,6 +92,7 @@ import {
   mdiFileOutline,
   mdiFormSelect,
   mdiAccountCogOutline,
+  mdiAccountHardHat,
 } from '@mdi/js'
 import NavMenuGroup from './components/NavMenuGroup.vue'
 import NavMenuLink from './components/NavMenuLink.vue'
@@ -113,6 +119,7 @@ export default {
         mdiFileOutline,
         mdiFormSelect,
         mdiAccountCogOutline,
+        mdiAccountHardHat,
       },
     }
   },
