@@ -5,7 +5,7 @@
   >
     <div>
       <div class="d-flex flex-no-wrap justify-space-between">
-        <div class="mt-4 ml-6">
+        <div class="mt-6 ml-6">
           <v-img
             v-if="$vuetify.breakpoint.mdAndUp"
             :src="imgSrc"
@@ -73,7 +73,7 @@ export default {
       required: true,
     },
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
     dynasty: {

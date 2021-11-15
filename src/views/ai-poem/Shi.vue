@@ -202,8 +202,6 @@ export default {
         this.copyPoems = this.poems
       })
       setTimeout(() => { this.progressOn = false }, 1000)
-
-      // this.progressOn = false
     },
   },
 }
