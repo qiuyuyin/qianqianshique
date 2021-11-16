@@ -19,7 +19,7 @@ axios.interceptors.response.use(
 
 export function get(url, params = {}) {
   return new Promise((resolve, reject) => {
-    axios.get(url, {
+    axios.get(`/token/${url}`, {
       params,
     }).then(response => {
       resolve(response.data)

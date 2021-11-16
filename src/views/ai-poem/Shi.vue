@@ -183,7 +183,6 @@ export default {
   methods: {
     getToken() {
       getTokenOfPoem().then(res => {
-        console.log(res)
         this.tokenData = res.data
       })
     },
@@ -195,9 +194,7 @@ export default {
         poemtype: this.type,
         yan: this.poemYan,
       }).then(res => {
-        console.log(res)
         this.poems = res.data.data.poems
-        console.log(this.poems)
         this.copyKeys = this.keys
         this.copyPoems = this.poems
       })

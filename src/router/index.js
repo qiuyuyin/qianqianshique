@@ -22,6 +22,7 @@ const routes = [
     path: '/author/:id',
     name: 'author-detail',
     component: () => import('@/views/author/AuthorDetail.vue'),
+
   },
   {
     path: '/typography',

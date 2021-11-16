@@ -7,37 +7,43 @@
     </p>
     <v-row>
       <v-col
-        v-for="data in authorList"
-        :key="data.id"
         cols="12"
         md="8"
       >
-        <v-hover
-          v-slot="{ hover }"
-          close-delay="50"
-          open-delay="50"
-        >
-          <author-card
-            :id="data.ID"
-            :elevation="hover ? 16 : 2"
-            :class="{ 'on-hover': hover }"
-            :dynasty="data.dynasty"
-            :name="data.name"
-            :content="data.lifetime"
-            :img-src="'https://song.gushiwen.cn/'+data.avatar"
+        <v-row>
+          <v-col
+            v-for="data in authorList"
+            :key="data.id"
+            cols="12"
           >
-          </author-card>
-        </v-hover>
+            <v-hover
+              v-slot="{ hover }"
+              close-delay="50"
+              open-delay="50"
+            >
+              <author-card
+                :id="data.ID"
+                :elevation="hover ? 16 : 2"
+                :class="{ 'on-hover': hover }"
+                :dynasty="data.dynasty"
+                :name="data.name"
+                :content="data.lifetime"
+                :img-src="'https://song.gushiwen.cn/'+data.avatar"
+              >
+              </author-card>
+            </v-hover>
+          </v-col>
+        </v-row>
+        <v-pagination
+          v-model="currentPage"
+          class="mt-5"
+          :length="pageLength"
+          :total-visible="pageVisible"
+          @input="onPageChange"
+        >
+        </v-pagination>
       </v-col>
     </v-row>
-    <v-pagination
-      v-model="currentPage"
-      class="mt-5"
-      :length="pageLength"
-      :total-visible="pageVisible"
-      @input="onPageChange"
-    >
-    </v-pagination>
   </div>
 </template>
 
@@ -56,7 +62,7 @@ export default {
       currentPage: 1,
       pageSize: 5,
       pageLength: 20,
-      pageVisible: 7,
+      pageVisible: 10,
     }
   },
   mounted() {

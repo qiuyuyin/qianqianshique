@@ -5,18 +5,11 @@ import { get } from '../utils/http'
 const clientId = '87339f343af311eca50dbee3'
 const clientSecret = 'h4FPNif7M6wqju2cfKyB9j3iDNt218VP'
 
-export const getTokenOfPoem = () => get('/token/writing_helper/helper/oauth/gen_token', {
+export const getTokenOfPoem = () => get('writing_helper/helper/oauth/gen_token', {
   client_id: clientId,
   client_secret: clientSecret,
 })
 
-let tokenData = {}
-
-getTokenOfPoem().then(res => {
-  tokenData = res
-})
-
-console.log(tokenData)
 export const getAIPoem = (token, data) => {
   axios.interceptors.response.use(
     response => {

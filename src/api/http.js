@@ -4,7 +4,6 @@ axios.defaults.timeout = 4000 // 超时的时间设置
 axios.defaults.withCredentials = true // 允许跨域
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
-axios.defaults.baseURL = '/poem/'
 
 axios.interceptors.response.use(
   response => {
@@ -20,7 +19,7 @@ axios.interceptors.response.use(
 
 export function get(url, params = {}) {
   return new Promise((resolve, reject) => {
-    axios.get(url, {
+    axios.get(`/poem/${url}`, {
       params,
     }).then(response => {
       resolve(response.data)
@@ -31,7 +30,7 @@ export function get(url, params = {}) {
 }
 export function post(url, data = {}) {
   return new Promise((resolve, reject) => {
-    axios.post(url, data)
+    axios.post(`/poem/${url}`, data)
       .then(response => {
         resolve(response.data)
       }, err => {
@@ -49,7 +48,7 @@ export function post(url, data = {}) {
 
 export function deletes(url, data = {}) {
   return new Promise((resolve, reject) => {
-    axios.delete(url, data)
+    axios.delete(`/poem/${url}`, data)
       .then(response => {
         resolve(response.data)
       }, err => {
@@ -67,7 +66,7 @@ export function deletes(url, data = {}) {
 
 export function put(url, data = {}) {
   return new Promise((resolve, reject) => {
-    axios.put(url, data)
+    axios.put(`/poem/${url}`, data)
       .then(response => {
         resolve(response.data)
       }, err => {

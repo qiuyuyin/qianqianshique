@@ -51,6 +51,7 @@
           color="primary"
           class="text-center font-weight-black"
           large
+          target="_blank"
         >
           详情
         </v-btn>
