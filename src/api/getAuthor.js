@@ -1,5 +1,5 @@
-import { post } from './http'
+import { post, get } from './http'
 
 export const getAuthorList = params => post('author/getAuthorList', params)
 
-export const setUser = params => post('user/add', params)
+export const getAuthorByID = id => get(`author/getAuthorByID/${id}`)

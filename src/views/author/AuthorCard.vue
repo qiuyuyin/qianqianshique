@@ -5,9 +5,11 @@
   >
     <div>
       <div class="d-flex flex-no-wrap justify-space-between">
-        <div class="mt-6 ml-6">
+        <div
+          v-if="imgSrc!=='https://song.gushiwen.cn/'&&$vuetify.breakpoint.mdAndUp"
+          class="mt-6 ml-6"
+        >
           <v-img
-            v-if="$vuetify.breakpoint.mdAndUp"
             :src="imgSrc"
             class="rounded-lg"
             width="80px"
@@ -17,7 +19,7 @@
         <div class="mt-3">
           <v-list-item>
             <v-list-item-avatar
-              v-if="!$vuetify.breakpoint.mdAndUp"
+              v-if="imgSrc!=='https://song.gushiwen.cn/'&&!$vuetify.breakpoint.mdAndUp"
               size="35"
             >
               <v-img
@@ -84,9 +86,8 @@ export default {
   computed: {
     returnRouter() {
       return {
-        name: 'poem',
+        name: 'author-detail',
         params: {
-          dynasty: this.dynasty,
           id: this.id,
         },
       }

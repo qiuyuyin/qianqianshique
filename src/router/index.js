@@ -19,6 +19,11 @@ const routes = [
     component: () => import('@/views/poem/Poem.vue'),
   },
   {
+    path: '/author/:id',
+    name: 'author-detail',
+    component: () => import('@/views/author/AuthorDetail.vue'),
+  },
+  {
     path: '/typography',
     name: 'typography',
     component: () => import('@/views/typography/Typography.vue'),

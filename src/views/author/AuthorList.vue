@@ -71,21 +71,13 @@ export default {
         console.log(res)
         this.authorList = res.data.list
         console.log(this.authorList)
+        this.pageLength = Math.ceil(res.data.total / this.pageSize)
       })
     },
     async onPageChange(page) {
       this.currentPage = page
       await this.getAuthorListByPage()
     },
-
   },
-
-  // setup() {
-  //   const authorList = []
-
-  //   return {
-  //     authorList,
-  //   }
-  // },
 }
 </script>
