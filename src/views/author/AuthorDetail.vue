@@ -57,13 +57,16 @@
       >
         <v-card>
           <v-card-title>
-            {{ data.type }}
+            <h3>{{ data.type }}</h3>
           </v-card-title>
           <div
             v-for="(content,index) in data.content"
             :key="index"
           >
-            <v-card-text>
+            <v-card-text v-if="setTitle(content)">
+              <h3>{{ content }}</h3>
+            </v-card-text>
+            <v-card-text v-else>
               {{ content }}
             </v-card-text>
           </div>
@@ -85,6 +88,14 @@ export default {
     this.getAuthor()
   },
   methods: {
+    setTitle(content) {
+      const reg = RegExp(/[《》，。]/)
+      if (content.length >= 7 && reg.test(content)) {
+        return false
+      }
+
+      return true
+    },
     getAuthor() {
       getAuthorByID(this.$route.params.id)
         .then(res => {
