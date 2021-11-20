@@ -66,7 +66,10 @@
             <v-card-text v-if="setTitle(content)">
               <h3>{{ content }}</h3>
             </v-card-text>
-            <v-card-text v-else>
+            <v-card-text
+              v-else
+              class="author-detail-content"
+            >
               {{ content }}
             </v-card-text>
           </div>
@@ -103,10 +106,14 @@ export default {
 
           // 对读取的数据进行筛选
           this.authorDetail.avatar = `https://song.gushiwen.cn/${this.authorDetail.avatar}`
-          this.authorDetail.describe = this.authorDetail.describe.filter(data => data.content.length !== 0)
-          console.log(this.authorDetail)
+          this.authorDetail.describe = this.authorDetail.describe.filter(data => data.content !== null)
         })
     },
   },
 }
 </script>
+<style>
+.author-detail-content {
+  text-indent:2em
+}
+</style>
