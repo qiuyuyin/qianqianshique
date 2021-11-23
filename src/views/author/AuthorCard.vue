@@ -102,7 +102,7 @@ export default {
 </script>
 <style type="text/css">
 .recommand-text-div {
-  height: 83px;
+  height: 81px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;

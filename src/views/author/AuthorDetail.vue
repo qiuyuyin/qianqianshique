@@ -79,7 +79,7 @@
   </div>
 </template>
 <script>
-import { getAuthorByID } from '@/api/getAuthor'
+import { getAuthorByID } from '@/api/author'
 
 export default {
   data() {
@@ -92,8 +92,8 @@ export default {
   },
   methods: {
     setTitle(content) {
-      const reg = RegExp(/[《》，。]/)
-      if (content.length >= 7 && reg.test(content)) {
+      const reg = RegExp(/[《》，。、]/)
+      if (content.length >= 7 || reg.test(content)) {
         return false
       }
 

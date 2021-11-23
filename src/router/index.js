@@ -13,21 +13,26 @@ const routes = [
     name: 'dashboard',
     component: () => import('@/views/dashboard/Dashboard.vue'),
   },
+
   {
-    path: '/poem/:dynasty/:id',
-    name: 'poem',
-    component: () => import('@/views/poem/Poem.vue'),
+    path: '/author',
+    name: 'author',
+    component: () => import('@/views/author/AuthorList.vue'),
   },
   {
     path: '/author/:id',
     name: 'author-detail',
     component: () => import('@/views/author/AuthorDetail.vue'),
-
   },
   {
-    path: '/typography',
-    name: 'typography',
-    component: () => import('@/views/typography/Typography.vue'),
+    path: '/poem',
+    name: 'poem',
+    component: () => import('@/views/poem/PoemList.vue'),
+  },
+  {
+    path: '/poem/:poemType/:id',
+    name: 'poem-detail',
+    component: () => import('@/views/poem/PoemDetail.vue'),
   },
   {
     path: '/ai-poem/shi',
@@ -35,9 +40,9 @@ const routes = [
     component: () => import('@/views/ai-poem/Shi.vue'),
   },
   {
-    path: '/author',
-    name: 'author',
-    component: () => import('@/views/author/AuthorList.vue'),
+    path: '/typography',
+    name: 'typography',
+    component: () => import('@/views/typography/Typography.vue'),
   },
   {
     path: '/icons',

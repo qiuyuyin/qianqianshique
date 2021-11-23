@@ -48,6 +48,11 @@
         :icon="icons.mdiAccountHardHat"
       ></nav-menu-link>
       <nav-menu-link
+        title="诗句"
+        :to="{ name: 'poem'}"
+        :icon="icons.mdiAccountHardHat"
+      ></nav-menu-link>
+      <nav-menu-link
         title="设置"
         :to="{ name: 'pages-account-settings'}"
         :icon="icons.mdiAccountCogOutline"

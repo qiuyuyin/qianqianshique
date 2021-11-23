@@ -35,6 +35,7 @@
           </v-col>
         </v-row>
         <v-pagination
+          v-if="authorList.length !== 0"
           v-model="currentPage"
           class="mt-5"
           :length="pageLength"
@@ -50,7 +51,7 @@
 <script>
 // eslint-disable-next-line object-curly-newline
 import AuthorCard from './AuthorCard.vue'
-import { getAuthorList } from '@/api/getAuthor'
+import { getAuthorList } from '@/api/author'
 
 export default {
   components: {

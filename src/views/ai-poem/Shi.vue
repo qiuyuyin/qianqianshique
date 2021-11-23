@@ -140,7 +140,7 @@
 </template>
 
 <script>
-import { getTokenOfPoem, getAIPoem } from '@/api/getAIPoem'
+import { getTokenOfPoem, getAIPoem } from '@/api/AIPoem'
 
 export default {
   setup() {

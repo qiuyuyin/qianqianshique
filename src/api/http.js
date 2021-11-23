@@ -19,7 +19,7 @@ axios.interceptors.response.use(
 
 export function get(url, params = {}) {
   return new Promise((resolve, reject) => {
-    axios.get(`/poem/${url}`, {
+    axios.get(`/server/${url}`, {
       params,
     }).then(response => {
       resolve(response.data)
@@ -30,7 +30,7 @@ export function get(url, params = {}) {
 }
 export function post(url, data = {}) {
   return new Promise((resolve, reject) => {
-    axios.post(`/poem/${url}`, data)
+    axios.post(`/server/${url}`, data)
       .then(response => {
         resolve(response.data)
       }, err => {
@@ -48,7 +48,7 @@ export function post(url, data = {}) {
 
 export function deletes(url, data = {}) {
   return new Promise((resolve, reject) => {
-    axios.delete(`/poem/${url}`, data)
+    axios.delete(`/server/${url}`, data)
       .then(response => {
         resolve(response.data)
       }, err => {
@@ -66,7 +66,7 @@ export function deletes(url, data = {}) {
 
 export function put(url, data = {}) {
   return new Promise((resolve, reject) => {
-    axios.put(`/poem/${url}`, data)
+    axios.put(`/server/${url}`, data)
       .then(response => {
         resolve(response.data)
       }, err => {
