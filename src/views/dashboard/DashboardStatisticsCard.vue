@@ -1,11 +1,10 @@
 <template>
   <v-card min-height="180px">
-    <v-card-title class="align-start">
-      <span class="font-weight-semibold">本站所保存的诗词数据</span>
-      <v-spacer></v-spacer>
+    <v-card-title>
+      <span class="font-weight-black text--secondary">本站所保存的诗词数据</span>
     </v-card-title>
 
-    <v-card-subtitle class="mb-8 mt-n5">
+    <v-card-subtitle class="mb-8 mt-n4">
       <span>中华文化，博大精深！</span>
     </v-card-subtitle>
 

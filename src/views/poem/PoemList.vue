@@ -64,7 +64,7 @@ export default {
       page: {
         currentPage: 1, // 当前页面
         pageSize: 5, // 页面大小
-        pageLength: 20, // 设置的显示分页数目
+        pageLength: 3, // 设置的显示分页数目
         pageVisible: 10, // 可视化的分页数目
       },
       poemType: 'shi',

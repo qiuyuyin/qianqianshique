@@ -39,7 +39,7 @@
                 <div
                   class="text--primary"
                 >
-                  <span class="font-weight-bold">
+                  <span class="font-weight-regular">
                     {{ authorDetail.lifetime }}
                   </span>
                 </div>
@@ -55,7 +55,7 @@
         cols="12"
         md="9"
       >
-        <v-card>
+        <v-card class="text--primary">
           <v-card-title>
             <h3>{{ data.type }}</h3>
           </v-card-title>
@@ -114,6 +114,7 @@ export default {
 </script>
 <style>
 .author-detail-content {
-  text-indent:2em
+  text-indent:2em;
+  letter-spacing: 0.4px;
 }
 </style>

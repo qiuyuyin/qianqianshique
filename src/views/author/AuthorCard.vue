@@ -37,7 +37,7 @@
             <div
               class="recommand-text-div text--primary"
             >
-              <span class="font-weight-bold">
+              <span class="font-weight-medium">
                 {{ content }}
               </span>
             </div>

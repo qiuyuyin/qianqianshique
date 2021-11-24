@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <vertical-nav-menu
-      v-if="!$vuetify.breakpoint.mdAndUp"
+      v-if="!upAndMd"
       :is-drawer-open.sync="isDrawerOpen"
     ></vertical-nav-menu>
 
@@ -38,7 +38,7 @@
           </router-link>
 
           <v-app-bar-nav-icon
-            class="d-block d-md-none me-2"
+            class="d-block d-md-none ml-n2"
             @click="isDrawerOpen = !isDrawerOpen"
           ></v-app-bar-nav-icon>
           <v-tabs
@@ -46,13 +46,22 @@
             background-color="transparent"
             class="app-bar-tabs"
           >
-            <v-tab :to="{ name: 'dashboard'}">
+            <v-tab
+              :to="{ name: 'dashboard'}"
+              class="font-weight-semibold"
+            >
               主页
             </v-tab>
-            <v-tab :to="{ name: 'poem'}">
+            <v-tab
+              :to="{ name: 'poem'}"
+              class="font-weight-semibold"
+            >
               诗句
             </v-tab>
-            <v-tab :to="{ name: 'author'}">
+            <v-tab
+              class="font-weight-semibold"
+              :to="{ name: 'author'}"
+            >
               作者
             </v-tab>
             <v-tab>名句</v-tab>
@@ -92,7 +101,7 @@
     </v-app-bar>
 
     <v-main>
-      <div class="boxed-container pa-10 ">
+      <div class="app-content-container">
         <slot></slot>
       </div>
     </v-main>
@@ -149,6 +158,11 @@ export default {
     ThemeSwitcher,
     AppBarUserMenu,
   },
+  computed: {
+    upAndMd() {
+      return this.$vuetify.breakpoint.mdAndUp
+    },
+  },
   setup() {
     const isDrawerOpen = ref(null)
 
@@ -191,7 +205,8 @@ export default {
   }
 }
 .app-content-container{
-  max-width: 1200px;
+  width: 90%;
+  max-width: 1230px;
   margin-left: auto;
   margin-right: auto;
 }
