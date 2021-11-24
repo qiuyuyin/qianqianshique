@@ -1,45 +1,45 @@
 // Variable Overrides
-@import './variables.scss';
+@import "./variables.scss";
 
 // Dark Styles
-@import './dark.scss';
+@import "./dark.scss";
 
 // Custom Classes
-@import './classes.scss';
+@import "./classes.scss";
 
 // Mixins
-@import './mixins';
+@import "./mixins";
 
-@import './rtl.scss';
+@import "./rtl.scss";
 
-@import './libs/apex-chart.scss';
+@import "./libs/apex-chart.scss";
 
 // Component Variables
-@import '~vuetify/src/components/VAppBar/_variables.scss';
-@import '~vuetify/src/components/VAlert/_variables.scss';
-@import '~vuetify/src/components/VBadge/_variables.scss';
-@import '~vuetify/src/components/VBanner/_variables.scss';
-@import '~vuetify/src/components/VCard/_variables.scss';
-@import '~vuetify/src/components/VDialog/_variables.scss';
-@import '~vuetify/src/components/VFooter/_variables.scss';
-@import '~vuetify/src/components/VNavigationDrawer/_variables.scss';
-@import '~vuetify/src/components/VList/_variables.scss';
-@import '~vuetify/src/components/VSnackbar/_variables.scss';
-@import '~vuetify/src/components/VStepper/_variables.scss';
-@import '~vuetify/src/components/VToolbar/_variables.scss';
+@import "~vuetify/src/components/VAppBar/_variables.scss";
+@import "~vuetify/src/components/VAlert/_variables.scss";
+@import "~vuetify/src/components/VBadge/_variables.scss";
+@import "~vuetify/src/components/VBanner/_variables.scss";
+@import "~vuetify/src/components/VCard/_variables.scss";
+@import "~vuetify/src/components/VDialog/_variables.scss";
+@import "~vuetify/src/components/VFooter/_variables.scss";
+@import "~vuetify/src/components/VNavigationDrawer/_variables.scss";
+@import "~vuetify/src/components/VList/_variables.scss";
+@import "~vuetify/src/components/VSnackbar/_variables.scss";
+@import "~vuetify/src/components/VStepper/_variables.scss";
+@import "~vuetify/src/components/VToolbar/_variables.scss";
 
 // * Change the font size of content
 @include theme(v-application) using ($material) {
-  color: map-deep-get($material, 'text', 'secondary') !important;
+  color: map-deep-get($material, "text", "secondary") !important;
 }
 @include theme(v-card) using ($material) {
-  color: map-deep-get($material, 'text', 'secondary') !important;
+  color: map-deep-get($material, "text", "secondary") !important;
 }
 @include theme(v-sheet) using ($material) {
-  color: map-deep-get($material, 'text', 'secondary') !important;
+  color: map-deep-get($material, "text", "secondary") !important;
 
   .v-card__title {
-    color: map-deep-get($material, 'text', 'primary') !important;
+    color: map-deep-get($material, "text", "primary") !important;
   }
 
   h1,
@@ -48,7 +48,7 @@
   h4,
   h5,
   h6 {
-    color: map-deep-get($material, 'text', 'primary') !important;
+    color: map-deep-get($material, "text", "primary") !important;
   }
 }
 
@@ -87,80 +87,80 @@ button {
 //* ——— Override Vuetify Usage of `elevation` mixin ——————————————————
 //
 
-@include app-elevation('v-item-group.v-bottom-navigation', 4, true);
+@include app-elevation("v-item-group.v-bottom-navigation", 4, true);
 
 // Button
-@include app-elevation('v-btn--is-elevated', 2);
-@include app-elevation('v-btn--is-elevated::after', 4);
-@include app-elevation('v-btn--is-elevated::active', 8);
-@include app-elevation('v-btn--is-elevated.v-btn-fab', 6);
-@include app-elevation('v-btn--is-elevated.v-btn-fab::after', 8);
-@include app-elevation('v-btn--is-elevated.v-btn-fab::active', 12);
+@include app-elevation("v-btn--is-elevated", 2);
+@include app-elevation("v-btn--is-elevated::after", 4);
+@include app-elevation("v-btn--is-elevated::active", 8);
+@include app-elevation("v-btn--is-elevated.v-btn-fab", 6);
+@include app-elevation("v-btn--is-elevated.v-btn-fab::after", 8);
+@include app-elevation("v-btn--is-elevated.v-btn-fab::active", 12);
 
 // Card
-@include app-elevation('v-sheet.v-card--hover:hover', $card-hover-elevation);
-@include app-elevation('v-sheet.v-card--hover:focus', $card-hover-elevation);
-@include app-elevation('v-card--raised', $card-raised-elevation);
+@include app-elevation("v-sheet.v-card--hover:hover", $card-hover-elevation);
+@include app-elevation("v-sheet.v-card--hover:focus", $card-hover-elevation);
+@include app-elevation("v-card--raised", $card-raised-elevation);
 
 // Chip
-@include app-elevation('v-chip--clickable:active', 2);
+@include app-elevation("v-chip--clickable:active", 2);
 
 // Color Picker
-@include app-elevation('v-color-picker', 2);
+@include app-elevation("v-color-picker", 2);
 
 // Color Picker Preview
-@include app-elevation('v-color-picker__preview:not(.v-slider--disabled) .v-slider__thumb', 3);
+@include app-elevation("v-color-picker__preview:not(.v-slider--disabled) .v-slider__thumb", 3);
 
 // Dialog
-@include app-elevation('v-dialog', $dialog-elevation);
+@include app-elevation("v-dialog", $dialog-elevation);
 
 // Expansion Panel
-@include app-elevation('v-expansion-panel::before', 2);
+@include app-elevation("v-expansion-panel::before", 2);
 
 // Menu
-@include app-elevation('v-menu__content', 8);
-@include app-elevation('v-menu__content.theme--dark', 9);
+@include app-elevation("v-menu__content", 8);
+@include app-elevation("v-menu__content.theme--dark", 9);
 
 // Navigation Drawer
 @include app-elevation(
-  'v-navigation-drawer--is-mobile:not(.v-navigation-drawer--close)',
+  "v-navigation-drawer--is-mobile:not(.v-navigation-drawer--close)",
   $navigation-drawer-mobile-temporary-elevation
 );
 
 @include app-elevation(
-  'v-navigation-drawer--temporary:not(.v-navigation-drawer--close)',
+  "v-navigation-drawer--temporary:not(.v-navigation-drawer--close)",
   $navigation-drawer-mobile-temporary-elevation
 );
 
 // Pagination
-@include app-elevation('v-pagination__item', 2);
-@include app-elevation('v-pagination__item--active', 4);
-@include app-elevation('v-pagination__navigation', 2);
+@include app-elevation("v-pagination__item", 2);
+@include app-elevation("v-pagination__item--active", 4);
+@include app-elevation("v-pagination__navigation", 2);
 
 // VStepper
-@include app-elevation('v-stepper:not(.v-sheet--outlined)', $stepper-elevation);
-@include app-elevation('v-stepper__content', $stepper-header-elevation);
+@include app-elevation("v-stepper:not(.v-sheet--outlined)", $stepper-elevation);
+@include app-elevation("v-stepper__content", $stepper-header-elevation);
 
 // VSwitch
 @include app-elevation(
-  'v-input--switch:not(v-input--switch--flat):not(v-input--switch--inset) .v-input--switch__thumb',
+  "v-input--switch:not(v-input--switch--flat):not(v-input--switch--inset) .v-input--switch__thumb",
   $switch-thumb-elevation
 );
 
 // VTextField
 @include app-elevation(
-  'v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot',
+  "v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot",
   2
 );
 
 // VTimeline
-@include app-elevation('v-timeline-item__dot', 1);
+@include app-elevation("v-timeline-item__dot", 1);
 
 // VToolbar
-@include app-elevation('v-toolbar', 4);
+@include app-elevation("v-toolbar", 4);
 
 // Code
-@include app-elevation('v-application.kbd', 4);
+@include app-elevation("v-application.kbd", 4);
 
 // VSheet
 // ! Check it
@@ -171,28 +171,28 @@ button {
 //
 
 // Alert
-@include app-elevation('v-sheet.v-alert:not(.v-sheet--outlined)', $alert-elevation);
+@include app-elevation("v-sheet.v-alert:not(.v-sheet--outlined)", $alert-elevation);
 
 // VAppBar
-@include app-elevation('v-sheet.v-app-bar.v-toolbar:not(.v-sheet--outlined)', $app-bar-elevation);
+@include app-elevation("v-sheet.v-app-bar.v-toolbar:not(.v-sheet--outlined)", $app-bar-elevation);
 
 // VBanner
-@include app-elevation('v-sheet.v-banner:not(.v-sheet--outlined)', $banner-elevation, true);
+@include app-elevation("v-sheet.v-banner:not(.v-sheet--outlined)", $banner-elevation, true);
 
 // VCard
-@include app-elevation('v-sheet.v-card:not(.v-sheet--outlined)', $card-elevation);
+@include app-elevation("v-sheet.v-card:not(.v-sheet--outlined)", $card-elevation);
 
 // VFooter
-@include app-elevation('v-sheet.v-footer:not(.v-sheet--outlined)', $footer-elevation);
+@include app-elevation("v-sheet.v-footer:not(.v-sheet--outlined)", $footer-elevation);
 
 // VList
-@include app-elevation('v-sheet.v-list:not(.v-sheet--outlined)', $list-elevation);
+@include app-elevation("v-sheet.v-list:not(.v-sheet--outlined)", $list-elevation);
 
 // VSnackbar
-@include app-elevation('v-sheet.v-snack__wrapper:not(.v-sheet--outlined)', $snackbar-elevation, true);
+@include app-elevation("v-sheet.v-snack__wrapper:not(.v-sheet--outlined)", $snackbar-elevation, true);
 
 // VToolbar
-@include app-elevation('v-sheet.v-toolbar:not(.v-sheet--outlined)', $toolbar-elevation);
+@include app-elevation("v-sheet.v-toolbar:not(.v-sheet--outlined)", $toolbar-elevation);
 
 //* ——— /shadows —————————————————— //
 
@@ -327,7 +327,7 @@ button {
 
 @include theme(v-expansion-panels) using ($material) {
   .v-expansion-panel-content__wrap {
-    color: map-deep-get($material, 'text', 'secondary');
+    color: map-deep-get($material, "text", "secondary");
   }
 }
 
@@ -345,7 +345,7 @@ button {
   }
 }
 
-@include app-elevation('v-expansion-panel.v-expansion-panel--active', 3, true);
+@include app-elevation("v-expansion-panel.v-expansion-panel--active", 3, true);
 
 .v-expansion-panel {
   .v-expansion-panel-header {
@@ -373,7 +373,7 @@ button {
 //
 
 // ? We have to use various selectors because `!important` isn't working
-.v-application[class*='theme'] {
+.v-application[class*="theme"] {
   .v-pagination__item,
   .v-pagination__navigation {
     box-shadow: none !important;
@@ -384,7 +384,7 @@ button {
   .v-pagination__item,
   .v-pagination__navigation {
     &:hover {
-      background-color: rgba(map-get($material, 'primary-shade'), map-deep-get($material, 'states', 'hover'));
+      background-color: rgba(map-get($material, "primary-shade"), map-deep-get($material, "states", "hover"));
     }
   }
 }
@@ -410,7 +410,7 @@ button {
 // ? Reason: Textarea hover underline color is too dark
 @include theme(v-text-field) using ($material) {
   &:not(.v-input--has-state):hover > .v-input__control > .v-input__slot:before {
-    border-color: rgba(map-get($material, 'primary-shade'), 0.28) !important;
+    border-color: rgba(map-get($material, "primary-shade"), 0.28) !important;
   }
 }
 
@@ -440,17 +440,17 @@ button {
     &.error,
     &.warning,
     &.info {
-      color: map-deep-get($shades, 'white');
+      color: map-deep-get($shades, "white");
     }
   }
 }
 
 $btn-custom-heights: (
-  'x-small': 26,
-  'small': 30,
-  'default': 38,
-  'large': 42,
-  'x-large': 46,
+  "x-small": 26,
+  "small": 30,
+  "default": 38,
+  "large": 42,
+  "x-large": 46,
 );
 
 .v-btn {
@@ -474,8 +474,8 @@ $btn-custom-heights: (
 }
 
 @include app-elevation(v-btn--is-elevated, 3, !important);
-@include app-elevation('v-btn--is-elevated:hover', 4, !important);
-@include app-elevation('v-btn--is-elevated:active', 2, !important);
+@include app-elevation("v-btn--is-elevated:hover", 4, !important);
+@include app-elevation("v-btn--is-elevated:active", 2, !important);
 
 //
 //* ——— Date Picker ——————————————————
@@ -485,12 +485,12 @@ $btn-custom-heights: (
   @include theme(v-picker) using ($material) {
     // ? `.v-application--wrap` is used to make sure pickers shown in/from dialog/input don't have border.
     .v-picker__body {
-      border: 1px solid rgba(map-deep-get($material, 'primary-shade'), 0.22);
+      border: 1px solid rgba(map-deep-get($material, "primary-shade"), 0.22);
     }
   }
 }
 
-@include theme-diff(v-picker, map-get($shades, 'white'), map-deep-get($material-dark, 'background')) using
+@include theme-diff(v-picker, map-get($shades, "white"), map-deep-get($material-dark, "background")) using
   ($property-value) {
   .v-picker__actions {
     background-color: $property-value;
@@ -527,8 +527,8 @@ $btn-custom-heights: (
   }
 }
 
-@include theme-diff(v-snack__wrapper, #5e5669, map-get($shades, 'white')) using ($property-value) {
-  &:not([class*='--text']) {
+@include theme-diff(v-snack__wrapper, #5e5669, map-get($shades, "white")) using ($property-value) {
+  &:not([class*="--text"]) {
     .v-snack__content {
       color: $property-value;
     }
@@ -633,7 +633,7 @@ $btn-custom-heights: (
 //* ——— Input ——————————————————
 //
 
-@include theme-diff(v-input, #fff, map-deep-get($material-light, 'text', 'secondary')) using ($value) {
+@include theme-diff(v-input, #fff, map-deep-get($material-light, "text", "secondary")) using ($value) {
   &.v-text-field--solo-inverted.v-input--is-focused {
     input,
     textarea {
@@ -654,7 +654,7 @@ $btn-custom-heights: (
 //* ——— Tabs ——————————————————
 //
 
-@include app-elevation('v-tabs:not(.v-tabs--vertical)', 3, true);
+@include app-elevation("v-tabs:not(.v-tabs--vertical)", 3, true);
 
 // tabs shadow
 .v-tabs:not(.v-tabs--vertical) {
@@ -674,7 +674,7 @@ $btn-custom-heights: (
 @include theme(v-tabs) using ($material) {
   &.v-tabs--vertical {
     .v-slide-group__wrapper {
-      border-right: thin solid map-get($material, 'dividers');
+      border-right: thin solid map-get($material, "dividers");
     }
   }
 }
@@ -742,11 +742,11 @@ $btn-custom-heights: (
 
 @include theme(v-data-table) using ($material) {
   th {
-    color: map-deep-get($material, 'text', 'primary') !important;
-    border-top: thin solid map-deep-get($material, 'dividers');
+    color: map-deep-get($material, "text", "primary") !important;
+    border-top: thin solid map-deep-get($material, "dividers");
   }
   td {
-    color: map-deep-get($material, 'text', 'secondary') !important;
+    color: map-deep-get($material, "text", "secondary") !important;
   }
 }
 
@@ -766,21 +766,20 @@ $btn-custom-heights: (
   }
 }
 
-
 // Browser Autofill styles
 .v-application.theme--light {
   input:-webkit-autofill,
   textarea:-webkit-autofill,
   select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px map-deep-get($material-light, 'cards') inset !important;
-    -webkit-text-fill-color: map-deep-get($material-light, 'text', 'secondary') !important;
+    -webkit-box-shadow: 0 0 0 1000px map-deep-get($material-light, "cards") inset !important;
+    -webkit-text-fill-color: map-deep-get($material-light, "text", "secondary") !important;
   }
 }
 .v-application.theme--dark {
   input:-webkit-autofill,
   textarea:-webkit-autofill,
   select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px map-deep-get($material-dark, 'cards') inset !important;
-    -webkit-text-fill-color: map-deep-get($material-dark, 'text', 'secondary') !important;
+    -webkit-box-shadow: 0 0 0 1000px map-deep-get($material-dark, "cards") inset !important;
+    -webkit-text-fill-color: map-deep-get($material-dark, "text", "secondary") !important;
   }
 }

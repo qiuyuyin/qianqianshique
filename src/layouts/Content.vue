@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <vertical-nav-menu :is-drawer-open.sync="isDrawerOpen"></vertical-nav-menu>
+    <vertical-nav-menu
+      v-if="!$vuetify.breakpoint.mdAndUp"
+      :is-drawer-open.sync="isDrawerOpen"
+    ></vertical-nav-menu>
+
     <v-app-bar
       app
       flat
@@ -10,10 +14,51 @@
       <div class="boxed-container w-full">
         <div class="d-flex align-center mx-6">
           <!-- Left Content -->
+          <router-link
+            v-if="$vuetify.breakpoint.mdAndUp"
+            to="/"
+          >
+            <v-img
+              :src="require('@/assets/images/logos/logo.svg')"
+              max-height="40px"
+              max-width="40px"
+              alt="logo"
+              contain
+              eager
+              class="app-logo me-3"
+            ></v-img>
+          </router-link>
+          <router-link
+            v-if="$vuetify.breakpoint.mdAndUp"
+            to="/"
+          >
+            <v-app-bar-title class="text--primary mr-5 ml-n1 font-weight-bold">
+              千千诗阙
+            </v-app-bar-title>
+          </router-link>
+
           <v-app-bar-nav-icon
-            class="d-block d-lg-none me-2"
+            class="d-block d-md-none me-2"
             @click="isDrawerOpen = !isDrawerOpen"
           ></v-app-bar-nav-icon>
+          <v-tabs
+            v-if="$vuetify.breakpoint.mdAndUp"
+            background-color="transparent"
+            class="app-bar-tabs"
+          >
+            <v-tab :to="{ name: 'dashboard'}">
+              主页
+            </v-tab>
+            <v-tab :to="{ name: 'poem'}">
+              诗句
+            </v-tab>
+            <v-tab :to="{ name: 'author'}">
+              作者
+            </v-tab>
+            <v-tab>名句</v-tab>
+          </v-tabs>
+          <v-spacer></v-spacer>
+          <!-- Right Content -->
           <v-text-field
             rounded
             dense
@@ -22,10 +67,6 @@
             class="app-bar-search flex-grow-0"
             hide-details
           ></v-text-field>
-
-          <v-spacer></v-spacer>
-
-          <!-- Right Content -->
           <a
             href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
             target="_blank"
@@ -51,7 +92,7 @@
     </v-app-bar>
 
     <v-main>
-      <div class="app-content-container boxed-container pa-6">
+      <div class="boxed-container pa-10 ">
         <slot></slot>
       </div>
     </v-main>
@@ -135,11 +176,28 @@ export default {
         padding-left: 18px;
       }
     }
+
+    .app-bar-tabs {
+      box-shadow: 0 0px 0px !important;
+      width: 60%;
+
+      .v-tab {
+        min-width: 75px;
+        max-width: 80px;
+        font-size: 16px;
+      }
+    }
+
   }
+}
+.app-content-container{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .boxed-container {
-  max-width: 1440px;
+  max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
 }
