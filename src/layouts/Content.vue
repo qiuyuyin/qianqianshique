@@ -64,7 +64,18 @@
             >
               作者
             </v-tab>
-            <v-tab>名句</v-tab>
+            <v-tab
+              class="font-weight-semibold"
+              :to="{ name: 'sentence'}"
+            >
+              名句
+            </v-tab>
+            <v-tab
+              class="font-weight-semibold"
+              :to="{ name: 'ai-poem-shi'}"
+            >
+              智能
+            </v-tab>
           </v-tabs>
           <v-spacer></v-spacer>
           <!-- Right Content -->
@@ -205,7 +216,7 @@ export default {
   }
 }
 .app-content-container{
-  width: 90%;
+  width: 88%;
   max-width: 1230px;
   margin-left: auto;
   margin-right: auto;

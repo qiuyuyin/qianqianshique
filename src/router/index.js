@@ -35,6 +35,11 @@ const routes = [
     component: () => import('@/views/poem/PoemDetail.vue'),
   },
   {
+    path: '/sentence',
+    name: 'sentence',
+    component: () => import('@/views/sentence/SentenceList.vue'),
+  },
+  {
     path: '/ai-poem/shi',
     name: 'ai-poem-shi',
     component: () => import('@/views/ai-poem/Shi.vue'),

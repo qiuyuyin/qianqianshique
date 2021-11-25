@@ -67,7 +67,7 @@
           <v-col
             cols="12"
             md="5"
-            class="mt-3   pb-0"
+            class="mt-3 pb-0"
           >
             <v-text-field
               v-model="keys"
@@ -143,12 +143,6 @@
 import { getTokenOfPoem, getAIPoem } from '@/api/AIPoem'
 
 export default {
-  setup() {
-    return {
-      icons: {
-      },
-    }
-  },
   data() {
     return {
       rules: [

@@ -8,7 +8,7 @@
     <v-row>
       <v-col
         cols="12"
-        md="7"
+        md="8"
       >
         <v-row>
           <v-col
@@ -36,7 +36,7 @@
           </v-col>
         </v-row>
         <v-pagination
-          v-if="poemList.length !== 0 "
+          v-if="poemList.length !== 0"
           v-model="page.currentPage"
           class="mt-5"
           :length="page.pageLength"
