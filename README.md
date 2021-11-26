@@ -47,7 +47,7 @@
 
 **mongoDB：**
 
-![image-20211126165347046](/Users/yili/Library/Application Support/typora-user-images/image-20211126165347046.png)
+![image-20211126165833994](https://i.loli.net/2021/11/26/kIYcpTgfmHhBGWL.png)
 
 **mysql：**
 
