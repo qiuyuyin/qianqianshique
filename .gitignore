@@ -13,6 +13,9 @@
 /poem_client/yarn-debug.log*
 /poem_client/yarn-error.log*
 /poem_client/pnpm-debug.log*
+/poem_client/pnpm-debug.log*
+/poem_client/yarn.lock
+/poem_client/package-lock.json
 
 # Editor directories and files
 .idea
