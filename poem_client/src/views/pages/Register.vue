@@ -80,8 +80,9 @@
               block
               color="primary"
               class="mt-6"
+              @click="register"
             >
-              Sign Up
+              注册
             </v-btn>
           </v-form>
         </v-card-text>
@@ -132,8 +133,19 @@
 // eslint-disable-next-line object-curly-newline
 import { mdiFacebook, mdiTwitter, mdiGithub, mdiGoogle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
+import { register } from '@/api/user'
 
 export default {
+  methods: {
+    register() {
+      register({
+        username: this.username,
+        password: this.password,
+      }).then(res => {
+        console.log(res)
+      })
+    },
+  },
   setup() {
     const isPasswordVisible = ref(false)
     const username = ref('')

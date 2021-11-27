@@ -6,8 +6,11 @@
     min-width="230"
     content-class="user-profile-menu-content"
   >
-    <template v-slot:activator="{ on, attrs }">
+    <template
+      v-slot:activator="{ on, attrs }"
+    >
       <v-badge
+        v-if="$store.state.user.token !== ''"
         bottom
         color="success"
         overlap
@@ -24,8 +27,17 @@
           <v-img :src="require('@/assets/images/avatars/1.png')"></v-img>
         </v-avatar>
       </v-badge>
+      <v-btn
+        v-if="$store.state.user.token === ''"
+        width="40px"
+        small
+        class="primary--text"
+        :to="{name:'pages-login'}"
+      >
+        登录
+      </v-btn>
     </template>
-    <v-list>
+    <v-list v-if="$store.state.user.token !== ''">
       <div class="pb-3 pt-2">
         <v-badge
           bottom
@@ -54,18 +66,20 @@
       <v-divider></v-divider>
 
       <!-- Profile -->
-      <v-list-item link>
+      <v-list-item
+        link
+      >
         <v-list-item-icon class="me-2">
           <v-icon size="22">
             {{ icons.mdiAccountOutline }}
           </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>Profile</v-list-item-title>
+          <v-list-item-title>用户信息</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
-      <!-- Email -->
+      <!-- Email
       <v-list-item link>
         <v-list-item-icon class="me-2">
           <v-icon size="22">
@@ -75,9 +89,9 @@
         <v-list-item-content>
           <v-list-item-title>Inbox</v-list-item-title>
         </v-list-item-content>
-      </v-list-item>
+      </v-list-item> -->
 
-      <!-- Chat -->
+      <!-- Chat
       <v-list-item link>
         <v-list-item-icon class="me-2">
           <v-icon size="22">
@@ -96,23 +110,25 @@
           >
           </v-badge>
         </v-list-item-action>
-      </v-list-item>
+      </v-list-item> -->
 
-      <v-divider class="my-2"></v-divider>
+      <!-- <v-divider class="my-2"></v-divider> -->
 
       <!-- Settings -->
-      <v-list-item link>
+      <v-list-item
+        :to="{name:'pages-account-settings'}"
+      >
         <v-list-item-icon class="me-2">
           <v-icon size="22">
             {{ icons.mdiCogOutline }}
           </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>Settings</v-list-item-title>
+          <v-list-item-title>用户设置</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
-      <!-- Pricing -->
+      <!-- Pricing
       <v-list-item link>
         <v-list-item-icon class="me-2">
           <v-icon size="22">
@@ -122,7 +138,7 @@
         <v-list-item-content>
           <v-list-item-title>Pricing</v-list-item-title>
         </v-list-item-content>
-      </v-list-item>
+      </v-list-item> -->
 
       <!-- FAQ -->
       <v-list-item link>
@@ -132,21 +148,23 @@
           </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>FAQ</v-list-item-title>
+          <v-list-item-title>关于我们</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
       <v-divider class="my-2"></v-divider>
 
       <!-- Logout -->
-      <v-list-item link>
+      <v-list-item
+        @click="LoginOut"
+      >
         <v-list-item-icon class="me-2">
           <v-icon size="22">
             {{ icons.mdiLogoutVariant }}
           </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>Logout</v-list-item-title>
+          <v-list-item-title>登出</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -164,8 +182,12 @@ import {
   mdiHelpCircleOutline,
   mdiLogoutVariant,
 } from '@mdi/js'
+import { mapActions } from 'vuex'
 
 export default {
+  methods: {
+    ...mapActions('user', ['LoginOut']),
+  },
   setup() {
     return {
       icons: {

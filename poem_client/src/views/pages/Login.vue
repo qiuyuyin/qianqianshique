@@ -37,10 +37,10 @@
         <v-card-text>
           <v-form>
             <v-text-field
-              v-model="email"
+              v-model="username"
               outlined
-              label="Email"
-              placeholder="john@example.com"
+              label="账户"
+              placeholder="qianqianshique"
               hide-details
               class="mb-3"
             ></v-text-field>
@@ -49,7 +49,7 @@
               v-model="password"
               outlined
               :type="isPasswordVisible ? 'text' : 'password'"
-              label="Password"
+              label="密码"
               placeholder="············"
               :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
               hide-details
@@ -75,6 +75,7 @@
               block
               color="primary"
               class="mt-6"
+              @click="login"
             >
               登录
             </v-btn>
@@ -125,11 +126,21 @@
 // eslint-disable-next-line object-curly-newline
 import { mdiFacebook, mdiTwitter, mdiGithub, mdiGoogle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
+import { mapActions } from 'vuex'
 
 export default {
+  methods: {
+    ...mapActions('user', ['LoginIn']),
+    async login() {
+      this.LoginIn({
+        username: this.username,
+        password: this.password,
+      })
+    },
+  },
   setup() {
     const isPasswordVisible = ref(false)
-    const email = ref('')
+    const username = ref('')
     const password = ref('')
     const socialLink = [
       {
@@ -156,7 +167,7 @@ export default {
 
     return {
       isPasswordVisible,
-      email,
+      username,
       password,
       socialLink,
 

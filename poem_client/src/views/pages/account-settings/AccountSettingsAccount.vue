@@ -22,7 +22,7 @@
           <v-icon class="d-sm-none">
             {{ icons.mdiCloudUploadOutline }}
           </v-icon>
-          <span class="d-none d-sm-block">Upload new photo</span>
+          <span class="d-none d-sm-block">上传头像</span>
         </v-btn>
 
         <input
@@ -37,10 +37,10 @@
           outlined
           class="mt-5"
         >
-          Reset
+          修改
         </v-btn>
         <p class="text-sm mt-5">
-          Allowed JPG, GIF or PNG. Max size of 800K
+          允许 JPG, PNG, SVG. 最大 800K
         </p>
       </div>
     </v-card-text>
@@ -53,75 +53,32 @@
             cols="12"
           >
             <v-text-field
-              v-model="accountDataLocale.username"
-              label="Username"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-col
-            md="6"
-            cols="12"
-          >
-            <v-text-field
               v-model="accountDataLocale.name"
               label="Name"
               dense
               outlined
+              class="pb-4"
             ></v-text-field>
-          </v-col>
 
-          <v-col
-            cols="12"
-            md="6"
-          >
             <v-text-field
               v-model="accountDataLocale.email"
               label="E-mail"
               dense
+              class="pb-4"
               outlined
             ></v-text-field>
-          </v-col>
 
-          <v-col
-            cols="12"
-            md="6"
-          >
-            <v-text-field
-              v-model="accountDataLocale.role"
-              dense
-              label="Role"
-              outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-col
-            cols="12"
-            md="6"
-          >
             <v-select
               v-model="accountDataLocale.status"
               dense
               outlined
+              class="pb-4"
               label="Status"
               :items="status"
             ></v-select>
           </v-col>
 
-          <v-col
-            cols="12"
-            md="6"
-          >
-            <v-text-field
-              v-model="accountDataLocale.company"
-              dense
-              outlined
-              label="Company"
-            ></v-text-field>
-          </v-col>
-
-          <!-- alert -->
+          <!-- alert
           <v-col cols="12">
             <v-alert
               color="warning"
@@ -146,14 +103,14 @@
                 </div>
               </div>
             </v-alert>
-          </v-col>
+          </v-col> -->
 
           <v-col cols="12">
             <v-btn
               color="primary"
               class="me-3 mt-4"
             >
-              Save changes
+              保存修改
             </v-btn>
             <v-btn
               color="secondary"
@@ -162,7 +119,7 @@
               type="reset"
               @click.prevent="resetForm"
             >
-              Cancel
+              取消
             </v-btn>
           </v-col>
         </v-row>

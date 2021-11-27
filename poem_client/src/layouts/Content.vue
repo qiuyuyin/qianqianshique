@@ -88,7 +88,7 @@
             hide-details
           ></v-text-field>
           <a
-            href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
+            href="https://github.com/qiuyuyin/qianqianshique"
             target="_blank"
             rel="nofollow"
           >
@@ -100,7 +100,7 @@
           <v-btn
             icon
             small
-            class="ms-3"
+            class="ms-3 mr-2"
           >
             <v-icon>
               {{ icons.mdiBellOutline }}
