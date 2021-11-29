@@ -1,28 +1,20 @@
 {
   "name": "qianqianshique",
-  "description": "Production ready carefully crafted most comprehensive admin template",
+  "description": "chinese poetry",
   "license": "MIT",
   "version": "1.0.1",
   "author": {
-    "name": "ThemeSelection",
-    "url": "https://themeselection.com/"
-  },
-  "bugs": {
-    "url": "https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free/issues"
+    "name": "qiuyuyin",
+    "url": "https://github.com/qiuyuyin/"
   },
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
+    "url": "git+https://github.com/qiuyuyin/qianqianshique"
   },
-  "homepage": "https://themeselection.com/demo/materio-vuetify-vuejs-admin-template-free/demo/",
   "keywords": [
-    "free template",
-    "vuejs admin",
-    "free admin template",
-    "free vuejs theme",
-    "free vuejs admin",
-    "free vuejs template"
+    "qianqianshique",
+    "中国古代诗集"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -41,7 +33,8 @@
     "vue-apexcharts": "^1.6.2",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vuex-persist": "^3.1.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

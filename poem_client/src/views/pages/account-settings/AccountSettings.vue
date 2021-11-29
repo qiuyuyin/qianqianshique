@@ -1,9 +1,15 @@
 <template>
-  <v-card id="account-setting-card">
+  <div id="account-setting-card">
+    <p
+      class="text-3xl primary--text font-weight-semibold"
+    >
+      用户设置
+    </p>
     <!-- tabs -->
     <v-tabs
       v-model="tab"
-      show-arrows
+      fixed-tabs
+      max-width="400px"
     >
       <v-tab
         v-for="tab in tabs"
@@ -33,7 +39,7 @@
         <account-settings-info :information-data="accountSettingData.information"></account-settings-info>
       </v-tab-item>
     </v-tabs-items>
-  </v-card>
+  </div>
 </template>
 
 <script>
@@ -56,9 +62,9 @@ export default {
 
     // tabs
     const tabs = [
-      { title: 'Account', icon: mdiAccountOutline },
-      { title: 'Security', icon: mdiLockOpenOutline },
-      { title: 'Info', icon: mdiInformationOutline },
+      { title: '账户设置', icon: mdiAccountOutline },
+      { title: '密码修改', icon: mdiLockOpenOutline },
+      { title: '详情信息', icon: mdiInformationOutline },
     ]
 
     // account settings data
