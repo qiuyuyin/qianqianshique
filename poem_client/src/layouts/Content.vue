@@ -12,7 +12,7 @@
       color="transparent"
     >
       <div class="boxed-container w-full">
-        <div class="d-flex align-center mx-6">
+        <div class="d-flex align-center mx-3">
           <!-- Left Content -->
           <router-link
             v-if="$vuetify.breakpoint.mdAndUp"
@@ -74,38 +74,34 @@
               class="font-weight-semibold"
               :to="{ name: 'ai-poem-shi'}"
             >
-              智能
+              梁园
             </v-tab>
           </v-tabs>
           <v-spacer></v-spacer>
           <!-- Right Content -->
-          <v-text-field
-            rounded
-            dense
-            outlined
-            :prepend-inner-icon="icons.mdiMagnify"
-            class="app-bar-search flex-grow-0"
-            hide-details
-          ></v-text-field>
-          <a
-            href="https://github.com/qiuyuyin/qianqianshique"
-            target="_blank"
-            rel="nofollow"
-          >
-            <v-icon class="ms-6 me-4">
-              {{ icons.mdiGithub }}
-            </v-icon>
-          </a>
-          <theme-switcher></theme-switcher>
-          <v-btn
-            icon
-            small
-            class="ms-3 mr-2"
-          >
-            <v-icon>
-              {{ icons.mdiBellOutline }}
-            </v-icon>
-          </v-btn>
+          <app-bar-search-form></app-bar-search-form>
+          <template v-if="$vuetify.breakpoint.mdAndUp">
+            <a
+              href="https://github.com/qiuyuyin/qianqianshique"
+              target="_blank"
+              rel="nofollow"
+            >
+              <v-icon class="ms-6 me-4">
+                {{ icons.mdiGithub }}
+              </v-icon>
+            </a>
+            <theme-switcher></theme-switcher>
+            <v-btn
+              icon
+              small
+              class="ms-3"
+            >
+              <v-icon>
+                {{ icons.mdiBellOutline }}
+              </v-icon>
+            </v-btn>
+          </template>
+
           <app-bar-user-menu></app-bar-user-menu>
         </div>
       </div>
@@ -162,12 +158,14 @@ import { mdiMagnify, mdiBellOutline, mdiGithub } from '@mdi/js'
 import VerticalNavMenu from './components/vertical-nav-menu/VerticalNavMenu.vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
 import AppBarUserMenu from './components/AppBarUserMenu.vue'
+import AppBarSearchForm from './components/AppBarSearchForm.vue'
 
 export default {
   components: {
     VerticalNavMenu,
     ThemeSwitcher,
     AppBarUserMenu,
+    AppBarSearchForm,
   },
   computed: {
     upAndMd() {

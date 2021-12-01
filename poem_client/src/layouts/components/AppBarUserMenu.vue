@@ -5,6 +5,7 @@
     nudge-bottom="14"
     min-width="230"
     content-class="user-profile-menu-content"
+    class=""
   >
     <template
       v-slot:activator="{ on, attrs }"

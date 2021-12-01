@@ -37,7 +37,6 @@ const user = {
           commit('setUserInfo', res.data.user)
           commit('setToken', res.data.token)
           router.push({ name: 'dashboard', replace: true })
-          window.location.reload()
 
           return true
         }

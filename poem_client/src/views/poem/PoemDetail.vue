@@ -1,5 +1,8 @@
 <template>
   <div>
+    <p class="text-3xl primary--text font-weight-semibold">
+      诗歌详情
+    </p>
     <v-row>
       <!-- 诗句 -->
       <v-col

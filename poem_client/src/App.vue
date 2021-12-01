@@ -1,6 +1,6 @@
 <template>
   <component :is="resolveLayout">
-    <router-view></router-view>
+    <router-view :key="$router.currentRoute.fullPath"></router-view>
     <upgrade-to-pro></upgrade-to-pro>
   </component>
 </template>

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <p class="text-3xl primary--text font-weight-semibold">
+      作者详情
+    </p>
     <v-row>
       <v-col
         cols="12"

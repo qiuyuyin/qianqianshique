@@ -24,11 +24,11 @@
               :class="{ 'on-hover': hover }"
               :dynasty="data.dynasty"
               :author-name="data.from"
-              :content="data.name"
+              :content="data.content"
               :title="data.title"
               :author-id="data.authorID"
               :poem-id="data.poemID"
-              :poem-type="data.poemType"
+              :poem-type="data.poemtype"
             >
             </sentence-card>
           </v-hover>
