@@ -20,6 +20,9 @@ export default {
     UpgradeToPro,
     Dialog,
   },
+  mounted() {
+    this.$vuetify.theme.dark = this.$store.state.user.dark
+  },
   setup() {
     const { route } = useRouter()
 

@@ -46,7 +46,7 @@
             ></v-text-field>
 
             <v-text-field
-              v-model="email"
+              v-model="nickname"
               outlined
               label="昵称"
               placeholder="填一个你喜欢的中文名，不唯一"
@@ -133,14 +133,23 @@
 // eslint-disable-next-line object-curly-newline
 import { mdiFacebook, mdiTwitter, mdiGithub, mdiGoogle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
+import { mapActions } from 'vuex'
 import { register } from '@/api/user'
 
 export default {
   methods: {
+    ...mapActions('user', ['LoginIn']),
+    login() {
+      this.LoginIn({
+        username: this.username,
+        password: this.password,
+      })
+    },
     register() {
       register({
         username: this.username,
         password: this.password,
+        nickname: this.nickname,
       }).then(res => {
         console.log(res)
         if (res.code === -1) {
@@ -149,10 +158,7 @@ export default {
             color: 'error',
           })
         } else {
-          this.$store.dispatch('snackbar/openSnackbar', {
-            msg: res.msg,
-            color: 'primary',
-          })
+          this.login()
         }
       })
     },

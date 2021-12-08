@@ -1,19 +1,32 @@
 <template>
   <div>
+    <template>
+      <v-banner
+        single-line
+      >
+        <p class="text-3xl primary--text font-weight-semibold">
+          梁园
+        </p>
+        <p class="font-weight-semibold">
+          风兼露，梁王宫阙无寒暑。朝与暮，故人风快凉轻度
+        </p>
+        <template v-slot:actions>
+          <v-btn
+            color="primary"
+            @click.stop="dialog = true"
+          >
+            我也写诗
+          </v-btn>
+        </template>
+      </v-banner>
+    </template>
     <v-dialog
       v-model="dialog"
       persistent
       max-width="600px"
     >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          v-bind="attrs"
-          v-on="on"
-        >
-          我也要写诗
-        </v-btn>
-      </template>
+      <p></p>
+
       <v-card>
         <v-row>
           <v-col

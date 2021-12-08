@@ -112,27 +112,53 @@
         <slot></slot>
       </div>
     </v-main>
-
     <v-footer
-      app
-      inset
-      color="transparent"
-      absolute
-      height="56"
-      class="px-0"
+      padless
+      color="transparent "
     >
-      <div class="boxed-container w-full">
-        <div class="mx-6 d-flex justify-space-between">
-          <!-- <span>
-            &copy; 2021 <a
-              href="https://themeselection.com"
-              class="text-decoration-none"
-              target="_blank"
-            >千千诗阕</a></span> -->
-          <span>2021</span>
-        </div>
-      </div>
+      <v-col
+        class="text-center mt-2"
+        cols="12"
+      >
+        {{ new Date().getFullYear() }} — <strong>千千诗阙</strong>
+      </v-col>
     </v-footer>
+    <v-bottom-navigation
+      v-if="!$vuetify.breakpoint.mdAndUp"
+      v-model="bottomNav"
+      color="primary"
+      fixed
+      max-height="38"
+      app
+    >
+      <v-btn
+        text
+        :to="{ name: 'dashboard' }"
+      >
+        <span>主页</span>
+      </v-btn>
+
+      <v-btn
+        text
+        :to="{ name: 'poem'}"
+      >
+        <span>诗句</span>
+      </v-btn>
+
+      <v-btn
+        text
+        :to="{ name: 'author'}"
+      >
+        <span>作者</span>
+      </v-btn>
+
+      <v-btn
+        text
+        :to="{ name: 'ai-poem-shi'}"
+      >
+        <span>梁园</span>
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
@@ -150,6 +176,11 @@ export default {
     ThemeSwitcher,
     AppBarUserMenu,
     AppBarSearchForm,
+  },
+  data() {
+    return {
+      bottomNav: 1,
+    }
   },
   computed: {
     upAndMd() {

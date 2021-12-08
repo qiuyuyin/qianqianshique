@@ -56,7 +56,7 @@ export default {
     const statisticsData = [
       {
         title: '诗人数目',
-        total: '3万',
+        total: '6926',
       },
       {
         title: '唐诗数目',
@@ -64,11 +64,11 @@ export default {
       },
       {
         title: '宋词数目',
-        total: '24万',
+        total: '2.7万',
       },
       {
-        title: '古文数目',
-        total: '3000篇',
+        title: '名句数目',
+        total: '3360',
       },
     ]
 

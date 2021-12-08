@@ -53,35 +53,10 @@
         :icon="icons.mdiAccountHardHat"
       ></nav-menu-link>
       <nav-menu-link
-        title="设置"
-        :to="{ name: 'pages-account-settings'}"
-        :icon="icons.mdiAccountCogOutline"
-      ></nav-menu-link>
-      <nav-menu-link
-        title="ai写诗"
+        title="梁园"
         :to="{ name: 'ai-poem-shi'}"
         :icon="icons.mdiAccountCogOutline"
       ></nav-menu-link>
-      <nav-menu-group
-        title="Pages"
-        :icon="icons.mdiFileOutline"
-      >
-        <nav-menu-link
-          title="Login"
-          :to="{ name: 'pages-login' }"
-          target="_blank"
-        ></nav-menu-link>
-        <nav-menu-link
-          title="Register"
-          :to="{ name: 'pages-register' }"
-          target="_blank"
-        ></nav-menu-link>
-        <nav-menu-link
-          title="Error"
-          :to="{ name: 'error-404' }"
-          target="_blank"
-        ></nav-menu-link>
-      </nav-menu-group>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -99,12 +74,10 @@ import {
   mdiAccountCogOutline,
   mdiAccountHardHat,
 } from '@mdi/js'
-import NavMenuGroup from './components/NavMenuGroup.vue'
 import NavMenuLink from './components/NavMenuLink.vue'
 
 export default {
   components: {
-    NavMenuGroup,
     NavMenuLink,
   },
   props: {

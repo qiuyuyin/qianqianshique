@@ -10,6 +10,7 @@ const user = {
       headerImg: '',
     },
     token: '',
+    dark: true,
   },
   mutations: {
     setUserInfo(state, userInfo) {
@@ -19,6 +20,9 @@ const user = {
     setToken(state, token) {
       // 这里的 `state` 对象是模块的局部状态
       state.token = token
+    },
+    setDark(state, dark) {
+      state.dark = dark
     },
     LoginOut(state) {
       state.userInfo = {}
@@ -47,6 +51,9 @@ const user = {
     },
     LoginOut({ commit }) {
       commit('LoginOut')
+    },
+    SetDark({ commit }, dark) {
+      commit('setDark', dark)
     },
   },
 }
