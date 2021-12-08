@@ -40,7 +40,7 @@
               v-model="username"
               outlined
               label="用户名"
-              placeholder="JohnDoe"
+              placeholder="用户名是唯一的哦"
               hide-details
               class="mb-3"
             ></v-text-field>
@@ -48,8 +48,8 @@
             <v-text-field
               v-model="email"
               outlined
-              label="邮箱"
-              placeholder="john@example.com"
+              label="昵称"
+              placeholder="填一个你喜欢的中文名，不唯一"
               hide-details
               class="mb-3"
             ></v-text-field>
@@ -143,6 +143,17 @@ export default {
         password: this.password,
       }).then(res => {
         console.log(res)
+        if (res.code === -1) {
+          this.$store.dispatch('snackbar/openSnackbar', {
+            msg: res.msg,
+            color: 'error',
+          })
+        } else {
+          this.$store.dispatch('snackbar/openSnackbar', {
+            msg: res.msg,
+            color: 'primary',
+          })
+        }
       })
     },
   },

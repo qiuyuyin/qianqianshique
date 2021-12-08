@@ -79,12 +79,12 @@ export default {
         company: 'Google.inc',
       },
       information: {
-        bio: 'The name’s John Deo. I am a tireless seeker of knowledge, occasional purveyor of wisdom and also, coincidentally, a graphic designer. Algolia helps businesses across industries quickly create relevant 😎, scaLabel 😀, and lightning 😍 fast search and discovery experiences.',
-        birthday: 'February 22, 1995',
-        phone: '954-006-0844',
-        website: 'https://themeselection.com/',
-        country: 'USA',
-        languages: ['English', 'Spanish'],
+        bio: '欢迎来到千千诗阕',
+        birthday: '2020-7-1',
+        phone: '1234567',
+        website: 'https://qianqianshique.com/',
+        country: 'CN',
+        languages: ['English', 'CN'],
         gender: 'male',
       },
     }

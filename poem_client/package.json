@@ -28,6 +28,7 @@
     "apexcharts": "^3.27.3",
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
+    "generate-avatar": "^1.4.10",
     "jinrishici": "^1.0.6",
     "vue": "^2.6.11",
     "vue-apexcharts": "^1.6.2",

@@ -25,7 +25,7 @@
           v-bind="attrs"
           v-on="on"
         >
-          <v-img :src="require('@/assets/images/avatars/1.png')"></v-img>
+          <img :src="avater">
         </v-avatar>
       </v-badge>
       <v-btn
@@ -50,7 +50,7 @@
           dot
         >
           <v-avatar size="40px">
-            <v-img :src="require('@/assets/images/avatars/1.png')"></v-img>
+            <img :src="avater">
           </v-avatar>
         </v-badge>
         <div
@@ -58,9 +58,9 @@
           style="vertical-align:middle"
         >
           <span class="text--primary font-weight-semibold mb-n1">
-            John Doe
+            {{ $store.state.user.userInfo.nickName }}
           </span>
-          <small class="text--disabled text-capitalize">Admin</small>
+          <small class="text--disabled text-capitalize">{{ $store.state.user.userInfo.userName }}</small>
         </div>
       </div>
 
@@ -184,10 +184,23 @@ import {
   mdiLogoutVariant,
 } from '@mdi/js'
 import { mapActions } from 'vuex'
+import { generateFromString } from 'generate-avatar'
 
 export default {
+  computed: {
+    avater() {
+      const str = generateFromString(this.$store.state.user.userInfo.userName)
+      console.log(str)
+
+      return `data:image/svg+xml;utf8,${str}`
+    },
+  },
   methods: {
     ...mapActions('user', ['LoginOut']),
+    getAvater() {
+      console.log(this.$store.state.user.userInfo.userName)
+      generateFromString(this.$store.state.user.userInfo.username)
+    },
   },
   setup() {
     return {

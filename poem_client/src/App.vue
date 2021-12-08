@@ -1,7 +1,7 @@
 <template>
   <component :is="resolveLayout">
+    <Dialog></Dialog>
     <router-view :key="$router.currentRoute.fullPath"></router-view>
-    <upgrade-to-pro></upgrade-to-pro>
   </component>
 </template>
 
@@ -11,12 +11,14 @@ import { useRouter } from '@/utils'
 import LayoutBlank from '@/layouts/Blank.vue'
 import LayoutContent from '@/layouts/Content.vue'
 import UpgradeToPro from './components/UpgradeToPro.vue'
+import Dialog from '@/components/Dialog.vue'
 
 export default {
   components: {
     LayoutBlank,
     LayoutContent,
     UpgradeToPro,
+    Dialog,
   },
   setup() {
     const { route } = useRouter()

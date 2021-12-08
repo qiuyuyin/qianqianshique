@@ -1,13 +1,16 @@
 <template>
   <v-app>
     <v-main>
-      <router-view></router-view>
+      <slot></slot>
     </v-main>
   </v-app>
 </template>
 
 <script>
-export default {}
+
+export default {
+
+}
 </script>
 
 <style>

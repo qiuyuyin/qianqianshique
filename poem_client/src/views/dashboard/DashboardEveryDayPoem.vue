@@ -48,6 +48,11 @@ export default {
   // 浏览器初始化之后使用这个格式。
   mounted() {
     this.loadSentence()
+
+    this.$store.dispatch('snackbar/openSnackbar', {
+      msg: '欢迎来到千千诗阕',
+      color: 'primary',
+    })
   },
   methods: {
     loadSentence() {

@@ -30,21 +30,20 @@ const user = {
     },
   },
   actions: {
-    LoginIn({ commit }, loginInfo) {
-      login(loginInfo).then(res => {
+    async LoginIn({ commit, dispatch }, loginInfo) {
+      await login(loginInfo).then(res => {
         console.log(res)
         if (res.code === 0) {
           commit('setUserInfo', res.data.user)
           commit('setToken', res.data.token)
           router.push({ name: 'dashboard', replace: true })
-
-          return true
+        } else {
+          dispatch('snackbar/openSnackbar', {
+            msg: res.msg,
+            color: 'error',
+          }, { root: true })
         }
-
-        return false
       })
-
-      return false
     },
     LoginOut({ commit }) {
       commit('LoginOut')

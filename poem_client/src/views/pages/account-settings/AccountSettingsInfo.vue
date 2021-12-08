@@ -11,7 +11,7 @@
               v-model="optionsLocal.bio"
               outlined
               rows="3"
-              label="Bio"
+              label="简介"
             ></v-textarea>
           </v-col>
 
@@ -23,7 +23,7 @@
               v-model="optionsLocal.birthday"
               outlined
               dense
-              label="Birthday"
+              label="生日"
             ></v-text-field>
           </v-col>
 
@@ -35,7 +35,7 @@
               v-model="optionsLocal.phone"
               outlined
               dense
-              label="Phone"
+              label="电话"
             ></v-text-field>
           </v-col>
 
@@ -47,7 +47,7 @@
               v-model="optionsLocal.website"
               outlined
               dense
-              label="Website"
+              label="个人网页"
             ></v-text-field>
           </v-col>
 
@@ -118,7 +118,7 @@
           color="primary"
           class="me-3 mt-3"
         >
-          Save changes
+          保存修改
         </v-btn>
         <v-btn
           outlined
@@ -127,7 +127,7 @@
           type="reset"
           @click.prevent="resetForm"
         >
-          Cancel
+          取消
         </v-btn>
       </v-card-text>
     </v-form>

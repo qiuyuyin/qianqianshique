@@ -172,27 +172,33 @@
           <v-card
             max-width="400"
           >
-            <v-card-title>
-              <span class="title font-weight-light">{{ poem.title }}</span>
-            </v-card-title>
-
-            <v-card-text class="headline font-weight-bold">
-              {{ poem.content }}
-            </v-card-text>
+            <h3 class="font-weight-bold mb-2 text-center pt-5 pb-2">
+              《{{ poem.title }}》
+            </h3>
+            <h3
+              v-for="content in poem.content.split('/n')"
+              :key="content"
+              class="poem-text text-center pb-2"
+            >
+              {{ content }}
+            </h3>
             <v-card-actions>
-              <v-list-item>
-                <v-list-item-avatar color="grey darken-3 ml-n3">
-                  <v-img
-                    src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-                  ></v-img>
+              <v-list-item class="ml-4">
+                <v-list-item-avatar
+                  color="grey darken-3 ml-n3"
+                  size="35"
+                >
+                  <img
+                    :src="avater(poem.authorUsername)"
+                  >
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                  <v-list-item-title>{{ poem.authorName }}</v-list-item-title>
+                  <v-list-item-title>{{ poem.authorNickname }}</v-list-item-title>
                 </v-list-item-content>
 
                 <v-row
-                  v-if="false"
+                  v-if="true"
                   align="center"
                   justify="end"
                 >
@@ -230,6 +236,7 @@
 
 <script>
 import { mdiHeart, mdiShareVariant } from '@mdi/js'
+import { generateFromString } from 'generate-avatar'
 import { getTokenOfPoem, getAIPoem } from '@/api/AIPoem'
 import { postUserPoem, findUserPoemByPage } from '@/api/user'
 
@@ -249,7 +256,7 @@ export default {
       },
       tokenData: {},
       poemYan: '5',
-      keys: '交错进行',
+      keys: '大雪纷飞',
       poems: [],
       type: '1',
       copyPoems: [],
@@ -269,23 +276,39 @@ export default {
     disabled() {
       return false
     },
+
   },
   mounted() {
     this.getToken()
     this.getUserPoemListByPage()
   },
   methods: {
+    avater(userName) {
+      const str = generateFromString(userName)
+      console.log(userName)
+
+      return `data:image/svg+xml;utf8,${str}`
+    },
     uploadPoem() {
-      postUserPoem({
-        authorID: this.$store.state.user.userInfo.ID,
-        authorName: this.$store.state.user.userInfo.nickName,
-        title: this.copyKeys,
-        content: this.poems[0],
-      }).then(res => {
-        console.log(res.data)
-      })
-      this.getUserPoemListByPage()
-      this.dialog = false
+      if (this.copyPoems.length !== 0) {
+        postUserPoem({
+          authorID: this.$store.state.user.userInfo.ID,
+          authorUsername: this.$store.state.user.userInfo.userName,
+          authorNickname: this.$store.state.user.userInfo.nickName,
+          title: this.copyKeys,
+          content: `${this.copyPoems[0]}/n${this.copyPoems[1]}`,
+        }).then(res => {
+          console.log(res.data)
+        })
+        this.getUserPoemListByPage()
+        this.dialog = false
+      } else {
+        console.log('ddd')
+        this.$store.dispatch('snackbar/openSnackbar', {
+          msg: '请先生成诗',
+          color: 'error',
+        })
+      }
     },
     getToken() {
       getTokenOfPoem().then(res => {
@@ -320,7 +343,7 @@ export default {
     },
     async onPageChange(page) {
       this.page.currentPage = page
-      await this.getPoemListByPage()
+      await this.getUserPoemListByPage()
     },
   },
   setup() {

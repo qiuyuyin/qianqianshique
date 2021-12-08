@@ -131,7 +131,7 @@ import { mapActions } from 'vuex'
 export default {
   methods: {
     ...mapActions('user', ['LoginIn']),
-    async login() {
+    login() {
       this.LoginIn({
         username: this.username,
         password: this.password,

@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 import user from './modules/user'
 import search from './modules/search'
+import snackbar from './modules/snackbar'
 
 Vue.use(Vuex)
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   modules: {
     user,
     search,
+    snackbar,
   },
   plugins: [vuexLocal.plugin],
 })
