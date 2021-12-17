@@ -117,7 +117,7 @@
 
       <!-- Settings -->
       <v-list-item
-        :to="{name:'pages-account-settings'}"
+        link
       >
         <v-list-item-icon class="me-2">
           <v-icon size="22">

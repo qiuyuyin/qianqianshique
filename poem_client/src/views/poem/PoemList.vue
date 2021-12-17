@@ -129,8 +129,6 @@
         <v-btn-toggle
           v-model="poemType"
           color="primary"
-          text-xl
-          class="mb-2 mt-2"
           mandatory
         >
           <v-btn value="shi">
@@ -193,6 +191,7 @@
         </template>
       </v-col>
       <v-col
+        v-if="$vuetify.breakpoint.mdAndUp"
         cols="12"
         md="4"
       >

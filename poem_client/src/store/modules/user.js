@@ -10,7 +10,7 @@ const user = {
       headerImg: '',
     },
     token: '',
-    dark: true,
+    dark: false,
   },
   mutations: {
     setUserInfo(state, userInfo) {

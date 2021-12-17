@@ -303,6 +303,14 @@ export default {
       return `data:image/svg+xml;utf8,${str}`
     },
     uploadPoem() {
+      if (this.$store.state.user.token === '') {
+        this.$store.dispatch('snackbar/openSnackbar', {
+          msg: '未登录',
+          color: 'error',
+        })
+
+        return
+      }
       if (this.copyPoems.length !== 0) {
         postUserPoem({
           authorID: this.$store.state.user.userInfo.ID,
@@ -316,7 +324,6 @@ export default {
         this.getUserPoemListByPage()
         this.dialog = false
       } else {
-        console.log('ddd')
         this.$store.dispatch('snackbar/openSnackbar', {
           msg: '请先生成诗',
           color: 'error',

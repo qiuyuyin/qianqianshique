@@ -7,6 +7,7 @@
     </p>
     <v-row>
       <v-col
+        v-if="authorList"
         cols="12"
         md="8"
       >
@@ -33,7 +34,7 @@
           </v-hover>
         </template>
         <v-pagination
-          v-if="authorList.length !== 0"
+          v-if="authorList"
           v-model="currentPage"
           class="mt-5"
           :length="pageLength"
@@ -43,6 +44,7 @@
         </v-pagination>
       </v-col>
       <v-col
+        v-if="authorList"
         cols="12"
         md="4"
       >
@@ -99,7 +101,7 @@ export default {
   },
   data() {
     return {
-      authorList: [],
+      authorList: undefined,
       currentPage: 1,
       pageSize: 5,
       pageLength: 20,

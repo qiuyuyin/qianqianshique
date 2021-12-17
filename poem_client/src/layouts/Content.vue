@@ -120,7 +120,11 @@
         class="text-center mt-2"
         cols="12"
       >
-        {{ new Date().getFullYear() }} — <strong>千千诗阙</strong>
+        {{ new Date().getFullYear() }} — <strong>千千诗阙</strong><a
+          class="ml-2"
+          href="https://beian.miit.gov.cn/"
+        >
+          豫ICP备2021012626号-1</a>
       </v-col>
     </v-footer>
     <v-bottom-navigation
