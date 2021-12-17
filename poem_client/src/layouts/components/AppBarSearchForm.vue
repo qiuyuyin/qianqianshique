@@ -16,7 +16,7 @@
         outlined
         placeholder="全局搜索"
         :prepend-inner-icon="icons.mdiMagnify"
-        class="app-bar-search flex-grow-0"
+        class="app-bar-search flex-grow-0 ml-2 mr-1"
         hide-details
         v-bind="attrs"
         v-on="on"

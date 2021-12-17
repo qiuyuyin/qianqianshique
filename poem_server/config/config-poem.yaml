@@ -1,0 +1,35 @@
+mysql:
+  path: 47.110.147.51:3306
+  config: charset=utf8mb4&parseTime=True&loc=Local
+  db-name: poem
+  username: root
+  password: ShiQue2021.
+  max-idle-conns: 0
+  max-open-conns: 0
+  log-mode: ""
+  log-zap: false
+casbin:
+  model-path: ./resource/rbac_model.conf
+zap:
+  level: info
+  format: console
+  prefix: '[ch-poem/server]'
+  director: log
+  link-name: latest_log
+  showLine: true
+  encode-level: LowercaseColorLevelEncoder
+  stacktrace-key: stacktrace
+  log-in-console: true
+#  path: 47.93.243.166:27017
+mongo:
+  path: 47.110.147.51:27017
+  db-name: poem
+  username: admin
+  password: 123456
+  max-pool-size: 100   #最大连接池数量
+  min-pool-size: 0     #最小连接池数量
+system:
+  env: public
+  addr: 0.0.0.0:8888
+  oss-type: local
+  use-multipoint: false

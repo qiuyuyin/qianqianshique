@@ -13,6 +13,7 @@
         <template v-slot:actions>
           <v-btn
             color="primary"
+            class="ml-n6"
             @click.stop="dialog = true"
           >
             我也写诗
@@ -26,7 +27,6 @@
       max-width="600px"
     >
       <p></p>
-
       <v-card>
         <v-row>
           <v-col
@@ -215,15 +215,7 @@
                   align="center"
                   justify="end"
                 >
-                  <v-icon class="mr-1">
-                    {{ mdiHeart }}
-                  </v-icon>
-                  <span class="subheading mr-2">256</span>
-                  <span class="mr-1">·</span>
-                  <v-icon class="mr-1">
-                    {{ mdiShareVariant }}
-                  </v-icon>
-                  <span class="subheading">45</span>
+                  <span class="subheading mr-2">{{ '创建于 '+getTime(poem.CreatedAt) }}</span>
                 </v-row>
               </v-list-item>
             </v-card-actions>
@@ -252,6 +244,8 @@ import { mdiHeart, mdiShareVariant } from '@mdi/js'
 import { generateFromString } from 'generate-avatar'
 import { getTokenOfPoem, getAIPoem } from '@/api/AIPoem'
 import { postUserPoem, findUserPoemByPage } from '@/api/user'
+import parseTime from '@/utils/time'
+import getTitle from '@/utils/poemTitle'
 
 export default {
   data() {
@@ -269,7 +263,7 @@ export default {
       },
       tokenData: {},
       poemYan: '5',
-      keys: '大雪纷飞',
+      keys: '',
       poems: [],
       type: '1',
       copyPoems: [],
@@ -292,6 +286,7 @@ export default {
 
   },
   mounted() {
+    this.keys = getTitle()
     this.getToken()
     this.getUserPoemListByPage()
   },
@@ -365,6 +360,10 @@ export default {
       this.page.currentPage = page
       await this.getUserPoemListByPage()
     },
+    getTime(time) {
+      return parseTime(time)
+    },
+
   },
   setup() {
     return {

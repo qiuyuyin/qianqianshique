@@ -77,7 +77,6 @@
               梁园
             </v-tab>
           </v-tabs>
-          <v-spacer></v-spacer>
           <!-- Right Content -->
           <app-bar-search-form></app-bar-search-form>
           <template v-if="$vuetify.breakpoint.mdAndUp">
@@ -108,16 +107,21 @@
     </v-app-bar>
 
     <v-main>
-      <div class="app-content-container">
-        <slot></slot>
-      </div>
+      <v-container
+        fluid
+        class="pa-0"
+      >
+        <div class="app-content-container">
+          <slot></slot>
+        </div>
+      </v-container>
     </v-main>
     <v-footer
       padless
-      color="transparent "
+      color="transparent"
     >
       <v-col
-        class="text-center mt-2"
+        class="text-center mt-2 mb-4"
         cols="12"
       >
         {{ new Date().getFullYear() }} — <strong>千千诗阙</strong><a
@@ -132,21 +136,26 @@
       v-model="bottomNav"
       color="primary"
       fixed
-      max-height="38"
-      app
+      grow
+      mandatory
+      max-height="38px"
     >
       <v-btn
         text
-        :to="{ name: 'dashboard' }"
+        to="/"
       >
         <span>主页</span>
+        <v-icon>
+          {{ icons.mdiHomeCircleOutline }}
+        </v-icon>
       </v-btn>
 
       <v-btn
         text
-        :to="{ name: 'poem'}"
+        to="/poem"
       >
         <span>诗句</span>
+        <v-icon>{{ icons.mdiScriptTextOutline }}</v-icon>
       </v-btn>
 
       <v-btn
@@ -154,6 +163,7 @@
         :to="{ name: 'author'}"
       >
         <span>作者</span>
+        <v-icon>{{ icons.mdiAccountHardHat }}</v-icon>
       </v-btn>
 
       <v-btn
@@ -161,14 +171,19 @@
         :to="{ name: 'ai-poem-shi'}"
       >
         <span>梁园</span>
+        <v-icon>{{ icons.mdiLeadPencil }}</v-icon>
       </v-btn>
     </v-bottom-navigation>
+    <p></p>
   </v-app>
 </template>
 
 <script>
 import { ref } from '@vue/composition-api'
-import { mdiMagnify, mdiBellOutline, mdiGithub } from '@mdi/js'
+import {
+  mdiMagnify, mdiBellOutline, mdiGithub, mdiAccountHardHat,
+  mdiHomeCircleOutline, mdiHomeAssistant, mdiLeadPencil, mdiScriptTextOutline,
+} from '@mdi/js'
 import VerticalNavMenu from './components/vertical-nav-menu/VerticalNavMenu.vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
 import AppBarUserMenu from './components/AppBarUserMenu.vue'
@@ -183,7 +198,7 @@ export default {
   },
   data() {
     return {
-      bottomNav: 1,
+      bottomNav: 0,
     }
   },
   computed: {
@@ -202,6 +217,11 @@ export default {
         mdiMagnify,
         mdiBellOutline,
         mdiGithub,
+        mdiHomeCircleOutline,
+        mdiHomeAssistant,
+        mdiLeadPencil,
+        mdiAccountHardHat,
+        mdiScriptTextOutline,
       },
     }
   },

@@ -1,8 +1,12 @@
 .DS_Store
 /poem_client/node_modules
 /poem_client/dist
+/poem_server/config-poem.yaml
+/poem_client/*.conf
 /dist
-
+.idea/
+/poem_server/test
+/poem_server/log
 
 # local env files
 .env.local

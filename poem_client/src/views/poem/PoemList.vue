@@ -25,6 +25,7 @@
                 class="app-bar-search"
                 hide-details
                 v-on="on"
+                @focus.prevent
               >
                 <template v-slot:prepend-inner>
                   <v-chip
@@ -178,7 +179,7 @@
         <v-pagination
           v-if="poemList"
           v-model="page.currentPage"
-          class="mt-5"
+          class="mt-5 mb-5"
           :length="page.pageLength"
           :total-visible="page.pageVisible"
           @input="onPageChange"
@@ -338,7 +339,7 @@ export default {
     }
     const authors = ['李白', '白居易', '杜甫', '苏轼', '辛弃疾', '李清照', '刘禹锡', '王维', '李商隐', '纳兰性德', '杜牧',
       '陆游', '陶渊明', '孟浩然', '元稹', '李煜', '柳宗元', '岑参', '韩愈', '王安石', '欧阳修', '韦应物', '李贺', '曹植', '王昌龄', '晏殊', '周邦彦',
-      '曹植', '温庭筠', '柳永', '刘长卿', '王昌龄', '杨万里', '罗隐', '王勃', '朱熹', '马致远', '曹雪芹', '文天祥', '刘克庄', '张九龄']
+      '温庭筠', '柳永', '刘长卿', '杨万里', '罗隐', '王勃', '朱熹', '马致远', '曹雪芹', '文天祥', '刘克庄', '张九龄']
 
     return {
       poemShi,

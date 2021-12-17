@@ -1,0 +1,45 @@
+aliyun-oss:
+  endpoint: yourEndpoint
+  access-key-id: yourAccessKeyId
+  access-key-secret: yourAccessKeySecret
+  bucket-name: yourBucketName
+  bucket-url: yourBucketUrl
+  base-path: yourBasePath
+mysql:
+  path: 127.0.0.1:3306
+  config: charset=utf8mb4&parseTime=True&loc=Local
+  db-name: poem
+  username: root
+  password:
+  max-idle-conns: 0
+  max-open-conns: 0
+  log-mode: ""
+  log-zap: false
+
+casbin:
+  model-path: ./resource/rbac_model.conf
+
+zap:
+  level: info
+  format: console
+  prefix: '[ch-poem/server]'
+  director: log
+  link-name: latest_log
+  showLine: true
+  encode-level: LowercaseColorLevelEncoder
+  stacktrace-key: stacktrace
+  log-in-console: true
+
+mongo:
+  path: 127.0.0.1:23717
+  db-name: poem
+  username:
+  password:
+  max-pool-size: 100   #最大连接池数量
+  min-pool-size: 0     #最小连接池数量
+
+system:
+  env: public  #这个配置的是开发者环境
+  addr: 0.0.0.0:8000   #配置后端开放端口
+  oss-type: local    #配置文件上传路径
+  use-multipoint: false     #是否开启多点登录

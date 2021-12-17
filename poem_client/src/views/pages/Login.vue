@@ -64,11 +64,11 @@
               >
               </v-checkbox>
 
-              <!-- forgot link -->
+              <!-- forgot link
               <a
                 href="javascript:void(0)"
                 class="mt-1"
-              > 忘记密码 </a>
+              > 忘记密码 </a> -->
             </div>
 
             <v-btn

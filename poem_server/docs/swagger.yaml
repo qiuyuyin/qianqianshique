@@ -1,0 +1,217 @@
+basePath: /
+definitions:
+  poem_request.SearchAuthorParams:
+    properties:
+      page:
+        description: 页码
+        type: integer
+      pageSize:
+        description: 每页大小
+        type: integer
+    required:
+    - page
+    - pageSize
+    type: object
+  poem_request.SearchPoemParams:
+    properties:
+      annotation:
+        items:
+          type: string
+        type: array
+      appreciation:
+        type: string
+      authorId:
+        type: string
+      authorName:
+        type: string
+      comment:
+        items:
+          type: string
+        type: array
+      content:
+        items:
+          type: string
+        type: array
+      dynasty:
+        type: string
+      id:
+        type: string
+      intro:
+        type: string
+      page:
+        description: 页码
+        type: integer
+      pageSize:
+        description: 每页大小
+        type: integer
+      poemType:
+        type: string
+      rank:
+        type: integer
+      title:
+        type: string
+      translation:
+        type: string
+    required:
+    - page
+    - pageSize
+    - poemType
+    type: object
+  poem_request.SearchSentenceParams:
+    properties:
+      authorID:
+        type: string
+      dynasty:
+        type: string
+      from:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      page:
+        description: 页码
+        type: integer
+      pageSize:
+        description: 每页大小
+        type: integer
+      poemID:
+        type: string
+      poemType:
+        type: string
+      title:
+        type: string
+    required:
+    - page
+    - pageSize
+    type: object
+info:
+  contact: {}
+  description: This is a sample Server pets
+  title: 千千诗阙API
+  version: 0.0.1
+paths:
+  /author/getAuthorByID/{oid}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: oid
+        in: path
+        name: oid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 根据OID获取Author
+      tags:
+      - AuthorApi（POST进行请求要将ID删去）
+  /author/getAuthorList:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 分页获取Author列表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/poem_request.SearchAuthorParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取Author列表
+      tags:
+      - AuthorApi（POST进行请求要将ID删去）
+  /poem/getPoemByID/{poemType}/{oid}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: oid
+        in: path
+        name: oid
+        required: true
+        type: string
+      - description: poemType
+        in: path
+        name: poemType
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 根据OID获取Poem
+      tags:
+      - PoemApi（POST进行请求要将ID删去）
+  /poem/getPoemList:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 分页获取Author列表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/poem_request.SearchPoemParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取Poem列表
+      tags:
+      - PoemApi（POST进行请求要将ID删去）
+  /sentence/getSentenceList:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 分页获取Sentence列表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/poem_request.SearchSentenceParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取Sentence列表
+      tags:
+      - SentenceApi（POST进行请求要将ID删去）
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: x-token
+    type: apiKey
+swagger: "2.0"

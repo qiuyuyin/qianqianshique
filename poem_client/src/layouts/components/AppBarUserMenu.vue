@@ -32,7 +32,7 @@
         v-if="$store.state.user.token === ''"
         width="40px"
         small
-        class="primary--text"
+        class="primary--text ml-2"
         :to="{name:'pages-login'}"
       >
         登录

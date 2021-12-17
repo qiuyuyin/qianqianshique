@@ -1,0 +1,338 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample Server pets",
+        "title": "千千诗阙API",
+        "contact": {},
+        "version": "0.0.1"
+    },
+    "basePath": "/",
+    "paths": {
+        "/author/getAuthorByID/{oid}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AuthorApi（POST进行请求要将ID删去）"
+                ],
+                "summary": "根据OID获取Author",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "oid",
+                        "name": "oid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/author/getAuthorList": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AuthorApi（POST进行请求要将ID删去）"
+                ],
+                "summary": "分页获取Author列表",
+                "parameters": [
+                    {
+                        "description": "分页获取Author列表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/poem_request.SearchAuthorParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/poem/getPoemByID/{poemType}/{oid}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "PoemApi（POST进行请求要将ID删去）"
+                ],
+                "summary": "根据OID获取Poem",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "oid",
+                        "name": "oid",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "poemType",
+                        "name": "poemType",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/poem/getPoemList": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "PoemApi（POST进行请求要将ID删去）"
+                ],
+                "summary": "分页获取Poem列表",
+                "parameters": [
+                    {
+                        "description": "分页获取Author列表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/poem_request.SearchPoemParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/sentence/getSentenceList": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SentenceApi（POST进行请求要将ID删去）"
+                ],
+                "summary": "分页获取Sentence列表",
+                "parameters": [
+                    {
+                        "description": "分页获取Sentence列表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/poem_request.SearchSentenceParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "poem_request.SearchAuthorParams": {
+            "type": "object",
+            "required": [
+                "page",
+                "pageSize"
+            ],
+            "properties": {
+                "page": {
+                    "description": "页码",
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "description": "每页大小",
+                    "type": "integer"
+                }
+            }
+        },
+        "poem_request.SearchPoemParams": {
+            "type": "object",
+            "required": [
+                "page",
+                "pageSize",
+                "poemType"
+            ],
+            "properties": {
+                "annotation": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "appreciation": {
+                    "type": "string"
+                },
+                "authorId": {
+                    "type": "string"
+                },
+                "authorName": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "content": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dynasty": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "intro": {
+                    "type": "string"
+                },
+                "page": {
+                    "description": "页码",
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "description": "每页大小",
+                    "type": "integer"
+                },
+                "poemType": {
+                    "type": "string"
+                },
+                "rank": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "translation": {
+                    "type": "string"
+                }
+            }
+        },
+        "poem_request.SearchSentenceParams": {
+            "type": "object",
+            "required": [
+                "page",
+                "pageSize"
+            ],
+            "properties": {
+                "authorID": {
+                    "type": "string"
+                },
+                "dynasty": {
+                    "type": "string"
+                },
+                "from": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "page": {
+                    "description": "页码",
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "description": "每页大小",
+                    "type": "integer"
+                },
+                "poemID": {
+                    "type": "string"
+                },
+                "poemType": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "x-token",
+            "in": "header"
+        }
+    }
+}

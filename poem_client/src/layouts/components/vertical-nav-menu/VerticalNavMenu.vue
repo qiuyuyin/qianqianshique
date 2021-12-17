@@ -50,7 +50,7 @@
       <nav-menu-link
         title="诗句"
         :to="{ name: 'poem'}"
-        :icon="icons.mdiAccountHardHat"
+        :icon="icons.mdiScriptTextOutline"
       ></nav-menu-link>
       <nav-menu-link
         title="梁园"
@@ -58,6 +58,23 @@
         :icon="icons.mdiAccountCogOutline"
       ></nav-menu-link>
     </v-list>
+    <v-divider class="mb-10"></v-divider>
+
+    <div class="pt-15">
+    </div>
+    <v-footer
+      absolute
+      class="font-weight-medium"
+      padless
+      color="transparent"
+    >
+      <v-col
+        class="text-center"
+        cols="12"
+      >
+        <strong>切换主题：</strong><theme-switcher class="pb-1"></theme-switcher>
+      </v-col>
+    </v-footer>
   </v-navigation-drawer>
 </template>
 
@@ -73,12 +90,15 @@ import {
   mdiFormSelect,
   mdiAccountCogOutline,
   mdiAccountHardHat,
+  mdiScriptTextOutline,
 } from '@mdi/js'
 import NavMenuLink from './components/NavMenuLink.vue'
+import ThemeSwitcher from '../ThemeSwitcher.vue'
 
 export default {
   components: {
     NavMenuLink,
+    ThemeSwitcher,
   },
   props: {
     isDrawerOpen: {
@@ -98,6 +118,7 @@ export default {
         mdiFormSelect,
         mdiAccountCogOutline,
         mdiAccountHardHat,
+        mdiScriptTextOutline,
       },
     }
   },

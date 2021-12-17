@@ -40,7 +40,7 @@
               v-model="username"
               outlined
               label="用户名"
-              placeholder="用户名是唯一的哦"
+              placeholder="用户名是唯一的哦，长度大于4"
               hide-details
               class="mb-3"
             ></v-text-field>
@@ -59,22 +59,67 @@
               outlined
               :type="isPasswordVisible ? 'text' : 'password'"
               label="密码"
-              placeholder="············"
+              placeholder="密码大于六位"
               :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
               hide-details
               @click:append="isPasswordVisible = !isPasswordVisible"
             ></v-text-field>
+            <div class="d-flex ">
+              <v-checkbox
+                hide-details
+                class="mt-1"
+                v-model="checkbox"
+              >
+                <template #label>
+                  <div class="d-flex align-center flex-wrap ">
+                    <span class="me-2">我同意</span>
+                  </div>
+                </template>
+              </v-checkbox>
+              <v-dialog
+                v-model="dialog"
+                width="500"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <p
+                    class="text-lg user-text primary--text "
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    用户协议
+                  </p>
+                </template>
 
-            <v-checkbox
-              hide-details
-              class="mt-1"
-            >
-              <template #label>
-                <div class="d-flex align-center flex-wrap">
-                  <span class="me-2">我同意</span><a href="javascript:void(0)">用户协议</a>
-                </div>
-              </template>
-            </v-checkbox>
+                <v-card>
+                  <v-card-title
+                    class="headline grey lighten-2"
+                    primary-title
+                  >
+                    用户协议
+                  </v-card-title>
+
+                  <v-card-text>
+                    <p>1.请不要在本站发布任何违反中华人民共和国法律相关的信息</p>
+                    <p>2.请不要在本站中输入任何您的真实信息，如姓名，手机号，身份证ID</p>
+                    <p>3.本网站为开源项目，请勿用作商务用途</p>
+                    <p>4.如果网站中有任何版权相关问题，可联系邮箱qiansongyin@gmail.com</p>
+                  </v-card-text>
+
+                  <v-divider></v-divider>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="primary"
+                      text
+                      @click="dialog = false"
+                    >
+                      我接受
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </div>
 
             <v-btn
               block
@@ -137,6 +182,12 @@ import { mapActions } from 'vuex'
 import { register } from '@/api/user'
 
 export default {
+  data() {
+    return {
+      dialog: false,
+      checkbox: false,
+    }
+  },
   methods: {
     ...mapActions('user', ['LoginIn']),
     login() {
@@ -146,21 +197,28 @@ export default {
       })
     },
     register() {
-      register({
-        username: this.username,
-        password: this.password,
-        nickname: this.nickname,
-      }).then(res => {
-        console.log(res)
-        if (res.code === -1) {
-          this.$store.dispatch('snackbar/openSnackbar', {
-            msg: res.msg,
-            color: 'error',
-          })
-        } else {
-          this.login()
-        }
-      })
+      if (!this.checkbox) {
+        this.$store.dispatch('snackbar/openSnackbar', {
+          msg: '未同意用户协议',
+          color: 'error',
+        })
+      } else {
+        register({
+          username: this.username,
+          password: this.password,
+          nickname: this.nickname,
+        }).then(res => {
+          console.log(res)
+          if (res.code === -1) {
+            this.$store.dispatch('snackbar/openSnackbar', {
+              msg: res.msg,
+              color: 'error',
+            })
+          } else {
+            this.login()
+          }
+        })
+      }
     },
   },
   setup() {
@@ -209,4 +267,8 @@ export default {
 
 <style lang="scss">
 @import '~@/plugins/vuetify/default-preset/preset/pages/auth.scss';
+
+.user-text {
+  margin-top: 6px;
+}
 </style>

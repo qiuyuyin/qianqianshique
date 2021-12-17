@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title class="align-start">
-      <span>本站保存历朝历代诗集数目</span>
+      <span>本站保存各个朝代诗词信息</span>
 
       <v-spacer></v-spacer>
 
