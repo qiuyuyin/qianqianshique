@@ -19,6 +19,14 @@
         <dashboard-statistics-card></dashboard-statistics-card>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col
+        cols="12"
+        md="12"
+      >
+        <dashboard-weekly-overview />
+      </v-col>
+    </v-row>
     <p
       class="text-3xl mt-6 primary--text font-weight-semibold"
     >
@@ -37,7 +45,6 @@
           :title="data.title"
           :content="data.content"
           :author="data.author"
-          img-src="https://api.ixiaowai.cn/gqapi/gqapi.php"
         >
         </dashboard-recommand-poem-card>
       </v-col>
@@ -52,12 +59,14 @@
 import DashboardEveryDayPoem from './DashboardEveryDayPoem.vue'
 import DashboardStatisticsCard from './DashboardStatisticsCard.vue'
 import DashboardRecommandPoemCard from './DashboardRecommandPoemCard.vue'
+import DashboardWeeklyOverview from './DashboardWeeklyOverview.vue'
 
 export default {
   components: {
     DashboardEveryDayPoem,
     DashboardStatisticsCard,
     DashboardRecommandPoemCard,
+    DashboardWeeklyOverview,
   },
   setup() {
     const recommandPoem = [

@@ -3,7 +3,7 @@
     v-bind="$attrs"
     class="align-self-start"
   >
-    <v-card-text class="d-flex flex-column justify-center align-center">
+    <!-- <v-card-text class="d-flex flex-column justify-center align-center">
       <v-avatar
         color="primary"
         class="mt-5 mx-auto"
@@ -18,8 +18,8 @@
           {{ mdiBrightness5 }}
         </v-icon>
       </v-avatar>
-    </v-card-text>
-    <v-card-text class="text-center mb-n6 text--primary">
+    </v-card-text> -->
+    <v-card-text class="text-center mb-n6 text--primary pt-7">
       <p class="font-weight-bold text-xl">
         {{ title }}
       </p>
@@ -31,7 +31,7 @@
         <p class="secondary--text text-end ">
           {{ author }}
         </p>
-        <span class="font-weight-bold">
+        <span class="font-weight-bold text-md">
           {{ content }}
         </span>
       </div>

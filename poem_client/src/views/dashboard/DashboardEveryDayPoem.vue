@@ -3,13 +3,23 @@
     class="greeting-card"
     height="180px"
   >
-    <v-row class="ma-0 pa-0">
-      <v-col cols="12">
-        <div class="text-xl font-weight-semibold primary--text pt-2 ps-2 pb-2 mx-auto ">
-          🥳一阙小诗
-        </div>
-      </v-col>
-    </v-row>
+    <v-card-title class="pl-n2">
+      <div class="text-xl font-weight-semibold primary--text mx-auto ">
+        🥳一阙小诗
+      </div>
+      <v-spacer></v-spacer>
+      <v-btn
+        icon
+        small
+        class="mt-n2 me-n3"
+        @click="loadSentence"
+      >
+        <v-icon size="22">
+          {{ mdiCached }}
+        </v-icon>
+      </v-btn>
+    </v-card-title>
+
     <div class="pl-10 text-xl font-weight-semibold pr-4">
       {{ everyDayDate.content }}
     </div>
@@ -20,11 +30,10 @@
 </template>
 
 <script>
+import { mdiCached } from '@mdi/js'
+
 const jinrishici = require('jinrishici')
 
-jinrishici.load(result => {
-  console.log(result)
-})
 export default {
   data() {
     return {
@@ -62,6 +71,11 @@ export default {
         console.log(errDate)
       })
     },
+  },
+  setup() {
+    return {
+      mdiCached,
+    }
   },
 }
 </script>

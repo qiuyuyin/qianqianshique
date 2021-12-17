@@ -76,7 +76,7 @@ export default {
       if (data === '唐诗数目') return { icon: mdiTrendingUp, color: 'primary' }
       if (data === '诗人数目') return { icon: mdiAccountOutline, color: 'secondary' }
       if (data === '宋词数目') return { icon: mdiDeathStarVariant, color: 'warning' }
-      if (data === '古文数目') return { icon: mdiFileDocumentMultipleOutline, color: 'info' }
+      if (data === '名句数目') return { icon: mdiFileDocumentMultipleOutline, color: 'info' }
 
       return { icon: mdiAccountOutline, color: 'success' }
     }

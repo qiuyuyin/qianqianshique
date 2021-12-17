@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title class="align-start">
-      <span>Weekly Overview</span>
+      <span>本站保存历朝历代诗集数目</span>
 
       <v-spacer></v-spacer>
 
@@ -23,22 +23,6 @@
         :series="chartData"
         height="210"
       ></vue-apex-charts>
-
-      <div class="d-flex align-center">
-        <h3 class="text-2xl font-weight-semibold me-4">
-          45%
-        </h3>
-        <span>Your sales perfomance in 45% 🤩 better compare to last month</span>
-      </div>
-
-      <v-btn
-        block
-        color="primary"
-        class="mt-6"
-        outlined
-      >
-        Details
-      </v-btn>
     </v-card-text>
   </v-card>
 </template>
@@ -56,20 +40,16 @@ export default {
   setup() {
     const ins = getCurrentInstance()?.proxy
     const $vuetify = ins && ins.$vuetify ? ins.$vuetify : null
-    const customChartColor = $vuetify.theme.isDark ? '#3b3559' : '#f5f5f5'
-
+    const customChartColor = $vuetify.theme.isDark ? '#99A799' : '#99A799'
+    const show = $vuetify.breakpoint.mdAndUp
     const chartOptions = {
       colors: [
-        customChartColor,
-        customChartColor,
-        customChartColor,
-        customChartColor,
-        $vuetify.theme.currentTheme.primary,
-        customChartColor,
+        '#C3B091',
+        '#A68DAD',
         customChartColor,
       ],
       chart: {
-        type: 'bar',
+        type: 'area',
         toolbar: {
           show: false,
         },
@@ -91,7 +71,8 @@ export default {
         show: false,
       },
       xaxis: {
-        categories: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+        categories: ['先唐', '唐', '宋', '元', '明', '清'],
+        name: '诗',
         axisBorder: {
           show: false,
         },
@@ -100,18 +81,18 @@ export default {
         },
         tickPlacement: 'on',
         labels: {
-          show: false,
+          show: true,
           style: {
             fontSize: '12px',
           },
         },
       },
       yaxis: {
-        show: true,
+        show,
         tickAmount: 4,
         labels: {
-          offsetY: 3,
-          formatter: value => `$${value}`,
+          offsetY: 5,
+          formatter: value => `${value}首`,
         },
       },
       stroke: {
@@ -127,7 +108,12 @@ export default {
 
     const chartData = [
       {
-        data: [40, 60, 50, 60, 75, 60, 50, 65],
+        name: '诗',
+        data: [1230, 31404, 109334, 12697, 66378, 16999],
+      },
+      {
+        name: '词',
+        data: [0, 504, 12922, 1495, 2134, 8796],
       },
     ]
 
