@@ -108,6 +108,7 @@
                 v-model="typeThree"
                 active-class="primary--text"
                 class="pa-3 mt-n1 mb-n2"
+                column
               >
                 <span class="pr-5 pt-1">朝代:</span>
                 <v-chip
@@ -323,17 +324,17 @@ export default {
   },
   setup() {
     const poemShi = {
-      chipGroupTypeOne: ['悼亡', '离别', '山水', '田园'],
+      chipGroupTypeOne: ['悼亡', '离别', '山水', '思乡', '边塞', '写景', '怀古', '送别', '春天', '夏天', '秋天', '冬天'],
       chipGroupTypeTwo: ['乐府', '七律', '五律', '七绝', '五绝'],
       chipGroupTypeThree: ['唐', '宋', '元', '明', '清', '五代十国', '汉', '秦', '隋', '三国', '南北朝', '金', '晋'],
     }
     const poemCi = {
-      chipGroupTypeOne: ['悼亡', '离别', '山水', '田园'],
-      chipGroupTypeTwo: ['水调歌头', '浣溪沙', '临江仙', '蝶恋花', '西江月', '满江红'],
+      chipGroupTypeOne: ['悼亡', '离别', '山水', '春天', '夏天', '秋天', '冬天'],
+      chipGroupTypeTwo: ['水调歌头', '浣溪沙', '临江仙', '蝶恋花', '西江月', '满江红', '虞美人', '如梦令', '浪淘沙', '声声慢', '破阵子', '菩萨蛮'],
       chipGroupTypeThree: ['唐', '宋', '元', '明', '清', '五代十国', '隋', '南北朝', '金'],
     }
     const poemQu = {
-      chipGroupTypeOne: ['悼亡', '离别', '山水', '田园'],
+      chipGroupTypeOne: [],
       chipGroupTypeTwo: [],
       chipGroupTypeThree: ['元', '明', '清'],
     }

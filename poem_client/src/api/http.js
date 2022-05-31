@@ -17,6 +17,8 @@ axios.interceptors.response.use(
   },
 )
 
+export default axios
+
 export function get(url, params = {}) {
   return new Promise((resolve, reject) => {
     axios.get(`/server/${url}`, {

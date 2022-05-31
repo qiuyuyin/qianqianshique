@@ -24,6 +24,9 @@ const user = {
     setDark(state, dark) {
       state.dark = dark
     },
+    setHeaderImg(state, headerImg) {
+      state.userInfo.headerImg = headerImg
+    },
     LoginOut(state) {
       state.userInfo = {}
       state.token = ''
@@ -54,6 +57,9 @@ const user = {
     },
     SetDark({ commit }, dark) {
       commit('setDark', dark)
+    },
+    SetHeaderImg({ commit }, headerImg) {
+      commit('setHeaderImg', headerImg)
     },
   },
 }

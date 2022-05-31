@@ -201,13 +201,21 @@
                   color="grey darken-3 ml-n3"
                   size="35"
                 >
-                  <img
-                    :src="avater(poem.authorUsername)"
-                  >
+                  <template v-if="poem.author.headerImg===''">
+                    <img
+                      :src="avater(poem.author.userName,poem.author.headerImg)"
+                    >
+                  </template>
+                  <template v-else>
+                    <v-img
+                      :src="avater(poem.author.userName,poem.author.headerImg)"
+                    >
+                    </v-img>
+                  </template>
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                  <v-list-item-title>{{ poem.authorNickname }}</v-list-item-title>
+                  <v-list-item-title>{{ poem.author.nickName }}</v-list-item-title>
                 </v-list-item-content>
 
                 <v-row
@@ -291,11 +299,14 @@ export default {
     this.getUserPoemListByPage()
   },
   methods: {
-    avater(userName) {
-      const str = generateFromString(userName)
-      console.log(userName)
+    avater(userName, headerImg) {
+      if (headerImg === '') {
+        const str = generateFromString(userName)
 
-      return `data:image/svg+xml;utf8,${str}`
+        return `data:image/svg+xml;utf8,${str}`
+      }
+
+      return headerImg
     },
     uploadPoem() {
       if (this.$store.state.user.token === '') {
@@ -313,6 +324,7 @@ export default {
           authorNickname: this.$store.state.user.userInfo.nickName,
           title: this.copyKeys,
           content: `${this.copyPoems[0]}/n${this.copyPoems[1]}`,
+          authorImg: this.$store.state.user.userInfo.headerImg,
         }).then(res => {
           console.log(res.data)
         })

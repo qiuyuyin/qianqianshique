@@ -98,11 +98,35 @@
                 </v-icon>
               </v-list-item-icon>
               <v-list-item-content class="secondary--text font-weight-black">
-                诗句
+                诗
               </v-list-item-content>
             </v-list-item>
             <v-list-item
               v-for="poem in searchRes.SearchPoemList"
+              :key="poem.id"
+              @click="poemRouter(poem.ID,poem.poemType)"
+            >
+              <v-list-item-icon class="me-2">
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>{{ poem.title }} - [{{ poem.authorName }}]</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+          </template>
+          <template v-if="searchRes.SearchCiList">
+            <v-list-item>
+              <v-list-item-icon class="me-2">
+                <v-icon size="20">
+                  {{ icons.mdiTextBoxSearchOutline }}
+                </v-icon>
+              </v-list-item-icon>
+              <v-list-item-content class="secondary--text font-weight-black">
+                词
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item
+              v-for="poem in searchRes.SearchCiList"
               :key="poem.id"
               @click="poemRouter(poem.ID,poem.poemType)"
             >
@@ -122,13 +146,13 @@
                 </v-icon>
               </v-list-item-icon>
               <v-list-item-content class="secondary--text font-weight-black">
-                诗句
+                名句
               </v-list-item-content>
             </v-list-item>
             <v-list-item
               v-for="sentence in searchRes.SearchSentenceList"
               :key="sentence.id"
-              link
+              @click="poemRouter(sentence.poemID,sentence.poemType)"
             >
               <v-list-item-icon class="me-2">
               </v-list-item-icon>

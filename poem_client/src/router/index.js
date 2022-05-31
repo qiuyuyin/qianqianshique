@@ -45,9 +45,14 @@ const routes = [
     component: () => import('@/views/ai-poem/Shi.vue'),
   },
   {
-    path: '/pages/account-settings',
-    name: 'pages-account-settings',
-    component: () => import('@/views/pages/account-settings/AccountSettings.vue'),
+    path: '/pages/user',
+    name: 'user',
+    component: () => import('@/views/pages/User.vue'),
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('@/views/pages/About.vue'),
   },
   {
     path: '/pages/login',

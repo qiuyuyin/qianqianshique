@@ -80,25 +80,47 @@
           <!-- Right Content -->
           <app-bar-search-form></app-bar-search-form>
           <template v-if="$vuetify.breakpoint.mdAndUp">
-            <a
-              href="https://github.com/qiuyuyin/qianqianshique"
-              target="_blank"
-              rel="nofollow"
+            <v-tooltip
+              bottom
+              color="primary"
             >
-              <v-icon class="ms-6 me-4">
-                {{ icons.mdiGithub }}
-              </v-icon>
-            </a>
-            <theme-switcher></theme-switcher>
-            <v-btn
-              icon
-              small
-              class="ms-3"
+              <template v-slot:activator="{ on, attrs }">
+                <a
+                  href="https://github.com/qiuyuyin/qianqianshique"
+                  target="_blank"
+                  rel="nofollow"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <v-icon class="ms-6 me-4">
+                    {{ icons.mdiGithub }}
+                  </v-icon>
+                </a>
+              </template>
+              <span>项目源码</span>
+            </v-tooltip>
+            <theme-switcher>
+            </theme-switcher>
+            <v-tooltip
+              bottom
+              color="primary"
             >
-              <v-icon>
-                {{ icons.mdiBellOutline }}
-              </v-icon>
-            </v-btn>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  v-bind="attrs"
+                  icon
+                  small
+                  class="ms-3"
+                  :to="{name: 'about'}"
+                  v-on="on"
+                >
+                  <v-icon>
+                    {{ icons.mdiHelpCircleOutline }}
+                  </v-icon>
+                </v-btn>
+              </template>
+              <span>关于本站</span>
+            </v-tooltip>
           </template>
 
           <app-bar-user-menu></app-bar-user-menu>
@@ -128,7 +150,7 @@
           class="ml-2"
           href="https://beian.miit.gov.cn/"
         >
-          豫ICP备2021012626号-1</a>
+          豫ICP备2021012626号-2</a>
       </v-col>
     </v-footer>
     <v-bottom-navigation
@@ -182,7 +204,8 @@
 import { ref } from '@vue/composition-api'
 import {
   mdiMagnify, mdiBellOutline, mdiGithub, mdiAccountHardHat,
-  mdiHomeCircleOutline, mdiHomeAssistant, mdiLeadPencil, mdiScriptTextOutline,
+  mdiHomeCircleOutline, mdiHomeAssistant, mdiLeadPencil,
+  mdiScriptTextOutline, mdiHelpCircleOutline,
 } from '@mdi/js'
 import VerticalNavMenu from './components/vertical-nav-menu/VerticalNavMenu.vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
@@ -222,6 +245,7 @@ export default {
         mdiLeadPencil,
         mdiAccountHardHat,
         mdiScriptTextOutline,
+        mdiHelpCircleOutline,
       },
     }
   },

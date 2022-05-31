@@ -25,7 +25,17 @@
           v-bind="attrs"
           v-on="on"
         >
-          <img :src="avater">
+          <template v-if="$store.state.user.userInfo.headerImg === ''">
+            <img
+              :src="avater"
+            >
+          </template>
+          <template v-else>
+            <v-img
+              :src="$store.state.user.userInfo.headerImg"
+            >
+            </v-img>
+          </template>
         </v-avatar>
       </v-badge>
       <v-btn
@@ -48,9 +58,20 @@
           offset-y="12"
           class="ms-4"
           dot
+          @click="()=>{dialog = true}"
         >
           <v-avatar size="40px">
-            <img :src="avater">
+            <template v-if="$store.state.user.userInfo.headerImg === ''">
+              <img
+                :src="avater"
+              >
+            </template>
+            <template v-else>
+              <v-img
+                :src="$store.state.user.userInfo.headerImg"
+              >
+              </v-img>
+            </template>
           </v-avatar>
         </v-badge>
         <div
@@ -62,12 +83,43 @@
           </span>
           <small class="text--disabled text-capitalize">{{ $store.state.user.userInfo.userName }}</small>
         </div>
+
+        <v-dialog
+          v-model="dialog"
+          width="500"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              class="ma-2"
+              text
+              v-bind="attrs"
+              color="primary"
+              v-on="on"
+            >
+              修改头像
+            </v-btn>
+          </template>
+          <v-card>
+            <account-settings-account>
+            </account-settings-account>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                color="primary"
+                text
+                @click="dialog = false"
+              >
+                退出
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </div>
 
-      <v-divider></v-divider>
+      <!-- <v-divider></v-divider> -->
 
       <!-- Profile -->
-      <v-list-item
+      <!-- <v-list-item
         link
       >
         <v-list-item-icon class="me-2">
@@ -78,7 +130,7 @@
         <v-list-item-content>
           <v-list-item-title>用户信息</v-list-item-title>
         </v-list-item-content>
-      </v-list-item>
+      </v-list-item> -->
 
       <!-- Email
       <v-list-item link>
@@ -92,15 +144,15 @@
         </v-list-item-content>
       </v-list-item> -->
 
-      <!-- Chat
-      <v-list-item link>
+      <!-- Chat -->
+      <!-- <v-list-item link>
         <v-list-item-icon class="me-2">
           <v-icon size="22">
             {{ icons.mdiChatOutline }}
           </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>Chat</v-list-item-title>
+          <v-list-item-title>聊天</v-list-item-title>
         </v-list-item-content>
 
         <v-list-item-action>
@@ -116,7 +168,7 @@
       <!-- <v-divider class="my-2"></v-divider> -->
 
       <!-- Settings -->
-      <v-list-item
+      <!-- <v-list-item
         link
       >
         <v-list-item-icon class="me-2">
@@ -127,7 +179,7 @@
         <v-list-item-content>
           <v-list-item-title>用户设置</v-list-item-title>
         </v-list-item-content>
-      </v-list-item>
+      </v-list-item> -->
 
       <!-- Pricing
       <v-list-item link>
@@ -142,7 +194,7 @@
       </v-list-item> -->
 
       <!-- FAQ -->
-      <v-list-item link>
+      <!-- <v-list-item link>
         <v-list-item-icon class="me-2">
           <v-icon size="22">
             {{ icons.mdiHelpCircleOutline }}
@@ -151,7 +203,7 @@
         <v-list-item-content>
           <v-list-item-title>关于我们</v-list-item-title>
         </v-list-item-content>
-      </v-list-item>
+      </v-list-item> -->
 
       <v-divider class="my-2"></v-divider>
 
@@ -185,10 +237,20 @@ import {
 } from '@mdi/js'
 import { mapActions } from 'vuex'
 import { generateFromString } from 'generate-avatar'
+import AccountSettingsAccount from '@/views/pages/account-settings/AccountSettingsAccount.vue'
 
 export default {
+  components: {
+    AccountSettingsAccount,
+  },
+  data() {
+    return {
+      dialog: false,
+    }
+  },
   computed: {
     avater() {
+      if (this.$store.state.user.userInfo.headerImg !== '') { return this.$store.state.user.userInfo.headerImg }
       const str = generateFromString(this.$store.state.user.userInfo.userName)
       console.log(str)
 

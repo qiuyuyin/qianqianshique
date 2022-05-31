@@ -13,13 +13,13 @@
 
     <div class="page-title text-center px-5">
       <h2 class="text-2xl font-weight-semibold text--primary d-flex align-center justify-center">
-        <span class="me-2">Page Not Found</span>
+        <span class="me-2">未找到</span>
         <v-icon color="warning">
           {{ icons.mdiAlert }}
         </v-icon>
       </h2>
       <p class="text-sm">
-        we couldn't find the page you are looking for
+        未找到页面
       </p>
 
       <div class="misc-character d-flex justify-center">
@@ -34,7 +34,7 @@
         to="/"
         class="mb-4"
       >
-        Back to home
+        回到主页面
       </v-btn>
     </div>
   </div>
