@@ -100,7 +100,7 @@ export default {
   },
 }
 </script>
-<style type="text/css">
+<style>
 .recommand-text-div {
   height: 81px;
   display: -webkit-box;
